@@ -4,7 +4,7 @@
 <div class="container">
   <div class="cards">
     <% @artworks.each do |artwork| %>
-    <div class="card">
+    <div class="card m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
     <%= link_to artwork.name, artwork_path(artwork) %>
     <p><span>Rate</span>
     <%= artwork.rate %></p>
