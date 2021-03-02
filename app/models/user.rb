@@ -8,7 +8,7 @@ class User < ApplicationRecord
   validates :username, presence: true
   validates :username, uniqueness: true
   validates :address, presence: true
-  validates :email_address, uniqueness: true
-  validates :email_address, presence: true
-  validates :email_address, format: { with: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/ }
+  validates :email, uniqueness: true
+  validates :email, presence: true
+  # validates :email, format: { :with /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/ }
 end
