@@ -1,1 +1,21 @@
+
 <%= render "navbar" %>
+<div class="banner">
+  <%= render "navbar" %>
+</div>
+<div class="container">
+  <div class="cards">
+    <% @artworks.each do |artwork| %>
+      <div class="card">
+        <%= link_to artwork.name, artwork_path(artwork) %>
+        <p><span>Rate</span>
+        <%= artwork.rate %></p>
+        <%= link_to "Edit", artworks_path(@artwork) %>
+        <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %>
+<!--       <%= image_tag artwork.photo %>
+ <--></div>
+    <% end %>
+  </div>
+  <%= link_to 'Add a new artwork', new_artwork_path  %>
+</div>
+
