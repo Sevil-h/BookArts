@@ -1,4 +1,5 @@
 require "faker"
+require 'open-uri'
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
 #
@@ -26,8 +27,10 @@ puts "created #{User.count} new users"
 # Added 10 artworks
 10.times do
   category = %w[painting drawing sculpture graphic_design seramic photography]
-  artwork = Artwork.new(name: Faker::Name.name, category: category.sample, photo: 'https://picsum.photos/200', rate: rand(20..500))
+  file = URI.open('https://source.unsplash.com/random')
+  artwork = Artwork.new(name: Faker::Name.name, category: category.sample, rate: rand(20..500))
   artwork.user = User.all.sample
+  artwork.photos.attach(io: file , filename: 'random.png', content_type: 'image.png')
   artwork.save!
 end
 

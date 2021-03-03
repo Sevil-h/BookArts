@@ -15,7 +15,7 @@ class ArtworksController < ApplicationController
   def create
     @artwork = Artwork.new(artwork_params)
     @artwork.user = User.first # user should be the user logged into this session - needs to be added late
-    if @artwork.save
+    if @artwork.save!
       redirect_to artwork_path(@artwork)
     else
       render :new
@@ -35,7 +35,7 @@ class ArtworksController < ApplicationController
   private
 
   def artwork_params
-    params.require(:artwork).permit(:name, :category, :description, :rate, :photo)
+    params.require(:artwork).permit(:name, :category, :description, :rate, photos: [])
   end
 
 end
