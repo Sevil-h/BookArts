@@ -1,2 +1,44 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<%-# Banner %>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/background.png);">
+  <div class="container">
+    <h1>BookArts - the nr 1 artworks marketplace </h1>
+    <p>Don't let your creativity gather dust in a a corner: unleash it on the world!</p>
+    <%= link_to "Start here", artworks_path, class: "btn btn-flat" %>
+  </div>
+</div>
+<%-# Cards %>
+ <div class="container">
+    <h2>How it works</h2>
+    <div class="container-cards-how">
+      <div class="card-how">
+        <img src= "https://source.unsplash.com/random" width="200", height=150 alt= "Step 1">
+        <h3>This is step 1</h3>
+        <p>This is a description of step 1</p>
+      </div>
+      <div class="card-how">
+        <img src= "https://source.unsplash.com/random" width=200 height=150 alt= "Step 2">
+        <h3>This is step 2</h3>
+        <p>This is a description of step 2</p>
+      </div>
+      <div class="card-how">
+        <img src= "https://source.unsplash.com/random" width=200 height=150  alt= "Step 3">
+        <h3>This is step 3</h3>
+        <p>This is a description of step 3</p>
+      </div>
+    </div>
+  </div>
+<%-# Footer %>
+<div class="footer text-center mt-4">
+  <div class="footer-links p-2">
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+  </div>
+  <div class="footer-copyright">
+    This footer is made with <i class="fas fa-heart"></i> at Le Wagon
+  </div>
+</div>
+
+
+
+
