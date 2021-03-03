@@ -1,8 +1,5 @@
 
 <%= render "navbar" %>
-<div class="banner">
-  <%= render "navbar" %>
-</div>
 <div class="container">
   <div class="cards">
     <% @artworks.each do |artwork| %>
@@ -13,7 +10,7 @@
         <%= link_to "Edit", artworks_path(@artwork) %>
         <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %>
         <%= cl_image_tag artwork.photos.first.key, height: 150, width: 200, crop: :fill %>
- <--></div>
+      </div>
     <% end %>
   </div>
   <%= link_to 'Add a new artwork', new_artwork_path  %>
