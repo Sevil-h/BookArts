@@ -10,12 +10,12 @@ class BookingsController < ApplicationController
     @booking = Booking.new(booking_params)
     @booking.user = current_user
     @booking.artwork = @artwork
-    raise
+    @booking.approval = false
       if @booking.save
-        flash[:success] = "Your artwork has been booked"
+        flash[:notice] = "Your artwork has been booked"
         redirect_to artwork_path(@artwork)
       else
-        flash[:error] = "Booking unsuccessful"
+        flash[:notice] = "Booking unsuccessful"
         render "artworks/show"
       end
   end
@@ -25,5 +25,4 @@ class BookingsController < ApplicationController
   def booking_params
     params.require(:booking).permit(:start_date, :end_date)
   end
-
 end
