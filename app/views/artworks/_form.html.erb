@@ -3,6 +3,6 @@
   <%= f.input :category %>
   <%= f.input :description , label: 'A brief description of the artwork' %>
   <%= f.input :rate, label: 'Rental price per month' %>
-  <%= f.input :photo, label: 'Photo URL' %>
+  <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Add photos' %>
   <%= f.button :submit %>
 <% end %>
