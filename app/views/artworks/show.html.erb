@@ -4,3 +4,9 @@
   <h5>Owned by <%= @artwork.user.username %></h5>
   <p><%= @artwork.description %></p>
 </div>
+
+<%= simple_form_for [@artwork, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit %>
+<% end %>
