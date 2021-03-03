@@ -1,17 +1,27 @@
-<div class="banner" class="justify-content-center">
-  <h1>BookArts</h1>
+<div class="banner">
+  <%= render "navbar" %>
 </div>
 <div class="container">
   <div class="cards">
     <% @artworks.each do |artwork| %>
+<<<<<<< HEAD
     <div class="card m-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('')">
     <%= link_to artwork.name, artwork_path(artwork) %>
     <p><span>Rate</span>
     <%= artwork.rate %></p>
     <%= link_to "Edit", artworks_path(@artwork) %>
     <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %>
+=======
+      <div class="card">
+        <%= link_to artwork.name, artwork_path(artwork) %>
+        <p><span>Rate</span>
+        <%= artwork.rate %></p>
+        <%= link_to "Edit", artworks_path(@artwork) %>
+        <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %>
+>>>>>>> a9117c63db6f7956a5dc88ae6010a290b21a4fb5
 <!--       <%= image_tag artwork.photo %>
- -->    </div>
+ <--></div>
     <% end %>
   </div>
+  <%= link_to 'Add a new artwork', new_artwork_path  %>
 </div>
