@@ -10,7 +10,6 @@
           <p><span>Artwork</span>: <%= request.artwork.name %></p>
           <p><span>Owner</span>: <%= request.artwork.user.username %></p>
           <p><span>£ </span><%= request.artwork.rate %></p>
-          <p><%= image_tag request.artwork.photo %></p>
           <p class="text-center">Booking Time</p>
           <p><%= request.start_date %>
           <span> - <%= request.end_date %></span></p>
@@ -28,7 +27,6 @@
         <div class="booking-card m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
           <p><span>Artwork</span>: <%= booking.artwork.name %></p>
           <p><span>Owner</span>: <%= booking.artwork.user.username %></p>
-          <p><%= image_tag booking.artwork.photo %></p>
           <p class= "text-center">Booking Time</p>
           <p><%= booking.start_date%>
           <span> - <%= booking.end_date%></span></p>
