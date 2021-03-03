@@ -2,8 +2,8 @@
 <p class="link-index"><%= link_to 'Back', artworks_path  %>
 </p>
 <div class="container">
-  <div class="cards">
-    <div class="text-center">
+  <div class="dashboard-cards">
+    <div class="request-info text-center">
       <h1>My request</h1>
       <% @requests.each do |request| %>
         <div class="request-card m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
@@ -11,7 +11,7 @@
           <p><span>Owner</span>: <%= request.artwork.user.username %></p>
           <p><span>£ </span><%= request.artwork.rate %></p>
           <% request.artwork.photos do |photo| %>
-            <p><%= cl_image_tag photo.key %></p>
+            <%= cl_image_tag photo.key %>
           <% end %>
           <p class="text-center">Booking Time</p>
           <p><%= request.start_date %>
@@ -24,7 +24,7 @@
         </div>
       <% end %>
     </div>
-    <div class="text-center">
+    <div class="booking-info text-center">
       <h1>Bookings</h1>
       <% @my_bookings.each do |booking| %>
         <div class="booking-card m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
@@ -46,4 +46,4 @@
     </div>
   </div>
 </div>
-
+<%= render "artworks/footer" %>

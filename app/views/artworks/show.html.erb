@@ -1,3 +1,4 @@
+<%= render "navbar" %>
 <div class="container">
   <% @artwork.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 500, width: 400, crop: :fill %>
@@ -13,3 +14,5 @@
   <%= f.button :submit %>
 <% end %>
 <%= link_to 'Back', artworks_path  %>
+
+<%= render "footer" %>
