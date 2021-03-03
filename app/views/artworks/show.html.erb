@@ -3,5 +3,11 @@
   <h1><%= @artwork.name %></h1>
   <h5>Owned by <%= @artwork.user.username %></h5>
   <p><%= @artwork.description %></p>
-<%= link_to 'Back', artworks_path  %>
 </div>
+
+<%= simple_form_for [@artwork, @booking] do |f| %>
+  <%= f.input :start_date %>
+  <%= f.input :end_date %>
+  <%= f.button :submit %>
+<% end %>
+<%= link_to 'Back', artworks_path  %>
