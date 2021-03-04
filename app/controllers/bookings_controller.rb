@@ -11,13 +11,13 @@ class BookingsController < ApplicationController
     @booking.user = current_user
     @booking.artwork = @artwork
     @booking.approval = false
-      if @booking.save
-        flash[:notice] = "Your artwork has been booked"
-        redirect_to artwork_path(@artwork)
-      else
-        flash[:notice] = "Booking unsuccessful"
-        render "artworks/show"
-      end
+    if @booking.save
+      flash[:notice] = "Your artwork has been booked"
+      redirect_to artwork_path(@artwork)
+    else
+      flash[:notice] = "Booking unsuccessful"
+      render "artworks/show"
+    end
   end
 
   def update
