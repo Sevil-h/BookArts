@@ -7,5 +7,4 @@ Rails.application.routes.draw do
   end
   resource :dashboard, only: :show
   resources :bookings, only: [:update]
-
 end

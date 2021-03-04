@@ -19,7 +19,7 @@
           <% if request.approval %>
             <p> Confirm! </p>
           <% else %>
-            <p> Pending</p>
+            <p> Decline</p>
           <% end %>
         </div>
       <% end %>
@@ -35,11 +35,13 @@
           <% end %>
           <p class= "text-center">Booking Time</p>
             <p><%= booking.start_date%>
-            <%= render "artworks/approval", booking: booking %>
             <span> - <%= booking.end_date%></span></p>
-          <% if booking.approval %>
-            <p> Confirm! </p>
-          <% else %>
+          <%= render "artworks/approval", booking: booking %>
+          <% if booking.approval == true%>
+            <p> Approved! </p>
+            <% elsif booking.approval == false %>
+            <p> Declined! </p>
+            <% else %>
             <p> Pending</p>
           <% end %>
         </div>
