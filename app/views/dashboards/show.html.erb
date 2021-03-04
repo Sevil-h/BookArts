@@ -22,6 +22,9 @@
           <% else %>
             <p> Decline</p>
           <% end %>
+          <% if Date.today < request.start_date %>
+            <p><%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %></p>
+          <% end %>
           <%= link_to "Leave a review", new_booking_review_path(request)  %>
         </div>
       <% end %>
@@ -38,12 +41,12 @@
           <p class= "text-center">Booking Time</p>
             <p><%= booking.start_date%>
             <span> - <%= booking.end_date%></span></p>
-          <%= render "artworks/approval", booking: booking %>
-          <% if booking.approval == true%>
-            <p> Approved! </p>
-            <% elsif booking.approval == false %>
-            <p> Declined! </p>
-            <% else %>
+          <%= render "approval", booking: booking %>
+          <% if booking.approval == true %>
+            <p>Approved!</p>
+          <% elsif booking.approval == false %>
+            <p>Declined!</p>
+          <% else %>
             <p> Pending</p>
           <% end %>
         </div>
