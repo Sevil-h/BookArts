@@ -21,6 +21,7 @@
           <% else %>
             <p> Pending</p>
           <% end %>
+          <%= link_to "Leave a review", new_booking_review_path(request)  %>
         </div>
       <% end %>
     </div>
