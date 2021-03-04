@@ -11,11 +11,11 @@ class Artwork < ApplicationRecord
 
   include PgSearch::Model
   pg_search_scope :global_search,
-    against: [:name, :category, :description],
-    associated_against: {
-      user: [:username]
-    },
-    using: {
-      tsearch: { prefix: true }
-    }
+      against: [:name, :category, :description], 
+      associated_against: {
+        user: [:username]
+      },
+      using: {
+        tsearch: { prefix: true }
+      }
 end
