@@ -1,4 +1,4 @@
-  <%= simple_form_for(@review, url: booking_reviews_path) do |f| %>
+  <%= simple_form_for([booking, review]) do |f| %>
     <%= f.input :content, label: 'Review' %>
     <%= f.input :rating, collection: (1..5).to_a, label: "Rate your experience" %>
     <%= f.button :submit %>
