@@ -2,7 +2,11 @@ class ArtworksController < ApplicationController
   skip_before_action :authenticate_user!, only: :index
 
   def index
-    @artworks = Artwork.all
+    if params[:query].present?
+      @artworks = Artwork.global_search(params[:query])
+    else
+      @artworks = Artwork.all
+    end
   end
 
   def show
@@ -39,5 +43,4 @@ class ArtworksController < ApplicationController
   def artwork_params
     params.require(:artwork).permit(:name, :category, :description, :rate, photos: [])
   end
-
 end

@@ -7,4 +7,14 @@ class Artwork < ApplicationRecord
   validates :name, uniqueness: true
   validates :rate, presence: true
   validates :category, presence: true
+
+  include PgSearch::Model
+  pg_search_scope :global_search,
+    against: [:name, :category, :description],
+    associated_against: {
+      user: [:username]
+    },
+    using: {
+      tsearch: { prefix: true }
+    }
 end
