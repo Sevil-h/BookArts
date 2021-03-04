@@ -40,9 +40,9 @@ class ArtworksController < ApplicationController
   end
 
   def destroy
-  @artwork = Artwork.find(params[:id])
-  @artwork.destroy
-  redirect_to artworks_path(@artwork)
+    @artwork = Artwork.find(params[:id])
+    @artwork.destroy
+    redirect_to artworks_path
   end
 
   private
