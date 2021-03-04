@@ -1,0 +1,14 @@
+<div class="confirm d-flex justify-content-center m-3">
+  <div class="accept-btn mx-2">
+    <%= simple_form_for(request) do |f| %>
+      <%= f.input :approval, input_html: { checked: true }, as: :hidden %>
+      <%= f.submit "Approve" %>
+    <% end %>
+  </div>
+  <div class="decline-btn">
+    <%= simple_form_for(request) do |f| %>
+      <%= f.input :approval, input_html: { checked: false }, as: :hidden %>
+      <%= f.submit "Decline" %>
+    <% end %>
+  </div>
+</div>
