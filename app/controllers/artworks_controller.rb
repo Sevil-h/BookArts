@@ -7,6 +7,12 @@ class ArtworksController < ApplicationController
     else
       @artworks = Artwork.all
     end
+      @markers = @artworks.geocoded.map do |artwork|
+    {
+      lat: artwork.latitude,
+      lng: artwork.longitude
+    }
+    end
   end
 
   def show

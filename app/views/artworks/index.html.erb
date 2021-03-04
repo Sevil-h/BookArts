@@ -7,6 +7,11 @@
         placeholder: "Find a artwork" %>
       <% end %>
     </div>
+    <div id="map"
+      style="width: 100%; height: 600px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
   <div class="cards">
     <% @artworks.each do |artwork| %>
          <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
