@@ -1,18 +1,26 @@
 <%= render "navbar" %>
-<div class="container">
+<div class="container m-3">
   <% @artwork.photos.each do |photo| %>
     <%= cl_image_tag photo.key, height: 500, width: 400, crop: :fill %>
   <% end %>
   <h1><%= @artwork.name %></h1>
-  <h5>Owned by <%= @artwork.user.username %></h5>
+  <h3>Owned by <%= @artwork.user.username %></h3>
   <p><%= @artwork.description %></p>
+  <h3>Reviews</h3>
+  <% @artwork.reviews.each do |review| %>
+   <p><%= "Reviewer: #{review.booking.user.username}" %></p>
+   <p><%= "Rating: #{review.rating}" %></p>
+   <p><%= "Content: #{review.content}" %></p>
+  <% end %>
 </div>
-
-<%= simple_form_for [@artwork, @booking] do |f| %>
-  <%= f.input :start_date %>
-  <%= f.input :end_date %>
-  <%= f.button :submit %>
-<% end %>
+<div class="container m-3">
+  <h3>Book this artwork</h3>
+  <%= simple_form_for [@artwork, @booking] do |f| %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.button :submit %>
+  <% end %>
+</div>
 <%= link_to 'Back', artworks_path  %>
 
 <%= render "footer" %>
