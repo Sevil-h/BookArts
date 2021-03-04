@@ -7,11 +7,12 @@ class ArtworksController < ApplicationController
     else
       @artworks = Artwork.all
     end
-      @markers = @artworks.geocoded.map do |artwork|
-    {
-      lat: artwork.latitude,
-      lng: artwork.longitude
-    }
+    @markers = @artworks.geocoded.map do |artwork|
+      {
+        lat: artwork.latitude,
+        lng: artwork.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { artwork: artwork })
+      }
     end
   end
 
