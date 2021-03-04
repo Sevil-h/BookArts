@@ -22,9 +22,9 @@
           <% else %>
             <p> Decline</p>
           <% end %>
-          <%-# if Date.today < request.start_date %>
+          <% if Date.today < request.start_date %>
             <p><%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %></p>
-          <%-# end %>
+          <% end %>
           <%= link_to "Leave a review", new_booking_review_path(request)  %>
         </div>
       <% end %>
