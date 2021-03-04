@@ -7,6 +7,7 @@ class Artwork < ApplicationRecord
   validates :name, uniqueness: true
   validates :rate, presence: true
   validates :category, presence: true
+  validates :category, inclusion: { in: %w[painting drawing sculpture graphic\ design ceramic photography] }
 
   include PgSearch::Model
   pg_search_scope :global_search,
