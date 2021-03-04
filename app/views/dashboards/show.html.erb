@@ -16,8 +16,10 @@
           <p class="text-center">Booking Time</p>
           <p><%= request.start_date %>
           <span> - <%= request.end_date %></span></p>
-          <% if request.approval %>
+          <% if request.approval == true%>
             <p> Confirm! </p>
+          <% elsif request.approval.nil? %>
+            <p> Pending </p>
           <% else %>
             <p> Decline</p>
           <% end %>
