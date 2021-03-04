@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :user
   belongs_to :artwork
-  has_one :review
+  has_one :review, dependent: :delete
   validates :start_date, presence: true
   validates :end_date, presence: true
   validate :end_date_cannot_come_before_start_date, :booking_dates_cannot_be_in_the_past

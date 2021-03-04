@@ -8,8 +8,8 @@ Rails.application.routes.draw do
     end
   resources :bookings, only: [:create]
   end
-  resource :dashboard, only: :show # should it be resources with an s?
-  resources :bookings, only: [:update] do
+  resource :dashboard, only: :show
+  resources :bookings, only: [:update, :destroy] do
     resources :reviews, only: [:new, :create]
   end
   resources :reviews, only: :index
