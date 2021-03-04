@@ -22,7 +22,7 @@
           <% else %>
             <p> Decline</p>
           <% end %>
-          <%= link_to "Leave a review", new_booking_review_path(request)  %>
+          <%= link_to "Leave a review", new_booking_review_path(request) unless Date.today < request.end_date  %>
         </div>
       <% end %>
     </div>
