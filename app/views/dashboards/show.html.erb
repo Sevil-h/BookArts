@@ -16,10 +16,12 @@
           <p class="text-center">Booking Time</p>
           <p><%= request.start_date %>
           <span> - <%= request.end_date %></span></p>
-          <% if request.approval %>
+          <% if request.approval == true%>
             <p> Confirm! </p>
+          <% elsif request.approval.nil? %>
+            <p> Pending </p>
           <% else %>
-            <p> Pending</p>
+            <p> Decline</p>
           <% end %>
           <%= link_to "Leave a review", new_booking_review_path(request)  %>
         </div>
@@ -37,9 +39,12 @@
           <p class= "text-center">Booking Time</p>
             <p><%= booking.start_date%>
             <span> - <%= booking.end_date%></span></p>
-          <% if booking.approval %>
-            <p> Confirm! </p>
-          <% else %>
+          <%= render "artworks/approval", booking: booking %>
+          <% if booking.approval == true%>
+            <p> Approved! </p>
+            <% elsif booking.approval == false %>
+            <p> Declined! </p>
+            <% else %>
             <p> Pending</p>
           <% end %>
         </div>
