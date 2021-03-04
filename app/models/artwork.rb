@@ -6,6 +6,7 @@ class Artwork < ApplicationRecord
   validates :name, presence: true
   validates :name, uniqueness: true
   validates :rate, presence: true
+  validates :address, presence: true
   validates :category, presence: true
   validates :category, inclusion: { in: %w[painting drawing sculpture graphic\ design ceramic photography] }
 

@@ -3,6 +3,7 @@
   <%= f.input :category, collection: %w[painting drawing sculpture graphic\ design ceramic photography] %>
   <%= f.input :description , label: 'A brief description of the artwork' %>
   <%= f.input :rate, label: 'Rental price per month' %>
+  <%= f.input :address, label: 'Address' %>
   <%= f.input :photos, as: :file, input_html: { multiple: true }, label: 'Add photos' %>
   <%= f.button :submit %>
 <% end %>
