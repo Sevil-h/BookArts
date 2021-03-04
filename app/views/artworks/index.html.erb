@@ -14,8 +14,6 @@
           <%= link_to artwork.name, artwork_path(artwork) %>
           <p><span>£</span>
           <%= artwork.rate %></p>
-          <%= link_to "Edit", artworks_path(@artwork) %>
-          <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %>
         </div>
     <% end %>
   </div>
