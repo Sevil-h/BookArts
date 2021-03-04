@@ -5,9 +5,10 @@ Rails.application.routes.draw do
   resources :artworks, only: [:index, :show, :new, :create, :edit, :destroy] do
   resources :bookings, only: [:create]
   end
-  resource :dashboard, only: :show
+  resource :dashboard, only: :show # should it be resources with an s?
   resources :bookings, only: [:update] do
     resources :reviews, only: [:new, :create]
   end
   resources :reviews, only: :index
+  resources :my_artworks, only: :index
 end
