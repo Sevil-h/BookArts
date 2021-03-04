@@ -13,7 +13,7 @@
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= background_url %>')">
           <%= link_to artwork.name, artwork_path(artwork) %>
           <p><span>£</span>
-          <%= artwork.rate %></p>
+          <%= "#{artwork.rate}/month" %></p>
           <%= link_to "Edit", artworks_path(@artwork) %>
           <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %>
         </div>
