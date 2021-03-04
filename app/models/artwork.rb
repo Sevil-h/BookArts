@@ -19,3 +19,6 @@ class Artwork < ApplicationRecord
       tsearch: { prefix: true }
     }
 end
+
+
+
