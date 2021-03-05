@@ -7,3 +7,13 @@
   font-family: 'Open Sans', sans-serif;
 }
 
+#map {
+  position: sticky;
+  top: 0;
+}
+.search-bar {
+  display: flex;
+}
+.search-bar-right-side {
+  flex-grow: 1;
+}
