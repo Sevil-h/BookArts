@@ -1,16 +1,20 @@
 <div class="container m-3">
-  <% @artwork.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 500, width: 400, crop: :fill %>
-  <% end %>
-  <h1><%= @artwork.name %></h1>
-  <h3>Owned by <%= @artwork.user.username %></h3>
-  <p><%= @artwork.description %></p>
-  <h3>Reviews</h3>
-  <% @artwork.reviews.each do |review| %>
-   <p><%= "Reviewer: #{review.booking.user.username}" %></p>
-   <p><%= "Rating: #{review.rating}" %></p>
-   <p><%= "Content: #{review.content}" %></p>
-  <% end %>
+  <div class="art-info">
+    <% @artwork.photos.each do |photo| %>
+      <%= cl_image_tag photo.key, height: 500, width: 400, crop: :fill %>
+    <% end %>
+    <h1><%= @artwork.name %></h1>
+    <h3>Owned by <%= @artwork.user.username %></h3>
+    <p><%= @artwork.description %></p>
+  </div>
+  <div>
+    <h3>Reviews</h3>
+    <% @artwork.reviews.each do |review| %>
+      <p><%= "Reviewer: #{review.booking.user.username}" %></p>
+      <p><%= "Rating: #{review.rating}" %></p>
+      <p><%= "Content: #{review.content}" %></p>
+    <% end %>
+  </div>
 </div>
 <div class="container m-3">
   <h3>Book this artwork</h3>
