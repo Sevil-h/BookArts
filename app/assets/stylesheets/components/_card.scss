@@ -11,12 +11,14 @@
   justify-content: center;
   align-items: center;
   font-weight: bold;
-  border-radius: 8px;
+  border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   color: $white;
     &:hover {
       opacity: 0.8;
+      transition-timing-function: ease-in;
+      transition-duration: 0.7s;
     }
 }
 .card a {
@@ -27,6 +29,8 @@
       opacity: 0.8;
       text-decoration: none;
       color: $light-gray;
+      transition-timing-function: ease-in;
+      transition-duration: 0.4s;
     }
 }
 // Smallest device

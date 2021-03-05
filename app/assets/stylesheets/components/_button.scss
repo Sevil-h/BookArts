@@ -39,9 +39,19 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
-.btn-create a {
+
+.button {
   background: $purple;
-  padding: 12px 24px;
+  padding: 10px 18px;
   color: $white;
-  border-radius: 10px;
+  border-radius: 5px;
+  text-decoration: none;
+  opacity: 0.9;
+    &:hover {
+      opacity: 1;
+      transition-timing-function: ease-in;
+      transition-duration: 0.7s;
+      text-decoration: none;
+      color: $white;
+    }
 }
