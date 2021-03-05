@@ -39,3 +39,9 @@
   background: linear-gradient(#147EFF, #0F67DA);
   color: white;
 }
+.btn-create a {
+  background: $purple;
+  padding: 12px 24px;
+  color: $white;
+  border-radius: 10px;
+}

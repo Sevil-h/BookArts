@@ -5,50 +5,58 @@
     <div class="request-info text-center">
       <h1>My request</h1>
       <% @requests.each do |request| %>
-        <div class="request-card m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-          <p><span>Artwork</span>: <%= request.artwork.name %></p>
-          <p><span>Owner</span>: <%= request.artwork.user.username %></p>
-          <p><span>£ </span><%= request.artwork.rate %></p>
-          <% request.artwork.photos do |photo| %>
-            <%= cl_image_tag photo.key %>
-          <% end %>
-          <p class="text-center">Booking Time</p>
-          <p><%= request.start_date %>
-          <span> - <%= request.end_date %></span></p>
-          <% if request.approval == true%>
-            <p> Confirm! </p>
-          <% elsif request.approval.nil? %>
-            <p> Pending </p>
-          <% else %>
-            <p> Decline</p>
-          <% end %>
-          <% if Date.today < request.start_date %>
-            <p><%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %></p>
-          <% end %>
-          <%= link_to "Leave a review", new_booking_review_path(request) unless Date.today < request.end_date  %>
+        <div class="request-card m-2 d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+          <div class="p-2">
+            <% request.artwork.photos.each do |photo| %>
+              <%= cl_image_tag photo.key,height: 250, width: 200, crop: :fill  %>
+            <% end %>
+          </div>
+          <div>
+            <p><span>Artwork</span>: <%= request.artwork.name %></p>
+            <p><span>Owner</span>: <%= request.artwork.user.username %></p>
+            <p><span>£ </span><%= request.artwork.rate %></p>
+            <p class="text-center">Booking Time</p>
+            <p><%= request.start_date %>
+            <span> - <%= request.end_date %></span></p>
+            <% if request.approval == true%>
+              <p> Confirm! </p>
+            <% elsif request.approval.nil? %>
+              <p> Pending </p>
+            <% else %>
+              <p> Decline</p>
+            <% end %>
+            <% if Date.today < request.start_date %>
+              <p><%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %></p>
+            <% end %>
+            <%= link_to "Leave a review", new_booking_review_path(request) unless Date.today < request.end_date  %>
+          </div>
         </div>
       <% end %>
     </div>
     <div class="booking-info text-center">
       <h1>Bookings</h1>
       <% @my_bookings.each do |booking| %>
-        <div class="booking-card m-2" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
-          <p><span>Artwork</span>: <%= booking.artwork.name %></p>
-          <p><span>Owner</span>: <%= booking.artwork.user.username %></p>
-          <% booking.artwork.photos do |photo| %>
-            <p><%= cl_image_tag photo.key %></p>
-          <% end %>
-          <p class= "text-center">Booking Time</p>
-            <p><%= booking.start_date%>
-            <span> - <%= booking.end_date%></span></p>
-          <%= render "approval", booking: booking %>
-          <% if booking.approval == true %>
-            <p>Approved!</p>
-          <% elsif booking.approval == false %>
-            <p>Declined!</p>
-          <% else %>
-            <p> Pending</p>
-          <% end %>
+        <div class="booking-card m-2 d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url()">
+          <div class="p-2">
+            <% booking.artwork.photos.each do |photo| %>
+              <%= cl_image_tag photo.key,height: 250, width: 200, crop: :fill  %>
+            <% end %>
+          </div>
+          <div>
+           <p><span>Artwork</span>: <%= booking.artwork.name %></p>
+            <p><span>Owner</span>: <%= booking.artwork.user.username %></p>
+            <p class= "text-center">Booking Time</p>
+              <p><%= booking.start_date%>
+              <span> - <%= booking.end_date%></span></p>
+            <%= render "approval", booking: booking %>
+            <% if booking.approval == true %>
+              <p>Approved!</p>
+            <% elsif booking.approval == false %>
+              <p>Declined!</p>
+            <% else %>
+              <p> Pending</p>
+            <% end %>
+          </div>
         </div>
       <% end %>
     </div>
