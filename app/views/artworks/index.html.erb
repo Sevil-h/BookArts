@@ -1,23 +1,29 @@
 <div class="container">
   <div class="search-bar">
-    <div class="m-3"><%= form_tag artworks_path, method: :get do %>
+    <div><%= form_tag artworks_path, method: :get do %>
       <%= text_field_tag :query,
         params[:query],
         class: "form-control",
         placeholder: "Find a artwork" %>
       <% end %>
     </div>
-  <div class="cards">
-    <% @artworks.each do |artwork| %>
-         <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
+    <div id="map" class="my-4"
+      style="width: 100%; height: 300px;"
+      data-markers="<%= @markers.to_json %>"
+      data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
+    </div>
+    <div class="cards">
+      <% @artworks.each do |artwork| %>
+        <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
         <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= background_url %>')">
           <%= link_to artwork.name, artwork_path(artwork) %>
           <p><span>£</span>
-          <%= artwork.rate %></p>
+          <%= "#{artwork.rate}/month" %></p>
           <%= link_to "Edit", artworks_path(@artwork) %>
           <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %>
         </div>
-    <% end %>
+      <% end %>
+    </div>
+    <%= link_to 'Add a new artwork', new_artwork_path  %>
   </div>
-  <%= link_to 'Add a new artwork', new_artwork_path  %>
 </div>

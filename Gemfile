@@ -36,6 +36,8 @@ gem 'faker'
 gem 'cloudinary', '~> 1.16.0'
 # For making a search added pg search
 gem 'pg_search', '~> 2.3.0'
+# For geocoding and mapbox
+gem 'geocoder'
 
 group :development, :test do
   gem 'pry-byebug'
