@@ -25,6 +25,7 @@ end
 puts "created #{User.count} new users"
 
 # Added 10 artworks
+
 # 10.times do
 #   category = %w[painting drawing sculpture graphic_design seramic photography]
 #   file = URI.open('https://source.unsplash.com/random')
@@ -92,6 +93,15 @@ tenth_artwork = Artwork.new(name: "Creation of Adam", description: "The Creation
 which forms part of the Sistine Chapel's ceiling, painted c. 1508–1512. It illustrates the Biblical creation narrative from the Book of Genesis in which God gives life to Adam, 
 the first man. The fresco is part of a complex iconographic scheme and is chronologically the fourth in the series of panels depicting episodes from Genesis.", rate: 1984, category: "painting")
 tenth_artwork.user = User.all.sample
+=======
+10.times do
+  category = %w[painting drawing sculpture graphic_design seramic photography]
+  file = URI.open('https://source.unsplash.com/random')
+  artwork = Artwork.new(name: Faker::Name.name, category: "painting", rate: rand(20..500), address: "2D Mitre Road, London")
+  artwork.user = User.all.sample
+  artwork.photos.attach(io: file , filename: 'random.png', content_type: 'image.png')
+  artwork.save!
+end
 
 # Added 10 bookings for user Sevil
 10.times do

@@ -1,8 +1,8 @@
 
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon mb-3">
-  <a class="navbar-brand" href="#">
+  <a class="navbar-brand" href="/">
     <p>BookArts</p>
-</a>
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -22,7 +22,7 @@
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Edit your profile", "#", class: "dropdown-item" %>
             <%= link_to "My Bookings", dashboard_path, class: "dropdown-item" %>
-            <%= link_to "My Artworks", "#", class: "dropdown-item" %>
+            <%= link_to "My Artworks", my_artworks_path, class: "dropdown-item" %>
             <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
