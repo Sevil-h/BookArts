@@ -10,7 +10,7 @@
           <p><span>Owner</span>: <%= request.artwork.user.username %></p>
           <p><span>£ </span><%= request.artwork.rate %></p>
           <% request.artwork.photos do |photo| %>
-            <%= cl_image_tag photo.key %>
+            <%= cl_image_tag photo.first.key %>
           <% end %>
           <p class="text-center">Booking Time</p>
           <p><%= request.start_date %>
