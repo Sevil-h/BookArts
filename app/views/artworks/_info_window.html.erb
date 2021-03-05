@@ -1,0 +1,7 @@
+<div class="d-flex">
+  <div class="mx-2">
+    <p><%= artwork.name %></p>
+    <p>£ <%= artwork.rate %></p>
+  </div>
+  <%= cl_image_tag artwork.photos.first.key,height: 70, width: 70, crop: :fill %>
+</div>

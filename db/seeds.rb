@@ -28,7 +28,7 @@ puts "created #{User.count} new users"
 10.times do
   category = %w[painting drawing sculpture graphic_design seramic photography]
   file = URI.open('https://source.unsplash.com/random')
-  artwork = Artwork.new(name: Faker::Name.name, category: category.sample, rate: rand(20..500))
+  artwork = Artwork.new(name: Faker::Name.name, category: "painting", rate: rand(20..500), address: "2D Mitre Road, London")
   artwork.user = User.all.sample
   artwork.photos.attach(io: file , filename: 'random.png', content_type: 'image.png')
   artwork.save!
