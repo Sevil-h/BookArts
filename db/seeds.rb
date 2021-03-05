@@ -17,34 +17,19 @@ sevil = User.create(username: 'Lilium', address: 'se18py', email: 'sevilhatipogl
 # Added 10 users
 10.times do
   user = User.new( username: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, password: "password")
-  # user.username = Faker::Name.name
-  # user.address = Faker::Address.full_address
-  # user.email = Faker::Internet.email
-
   user.save!
 end
 puts "created #{User.count} new users"
 
-# Added 10 artworks
-
-# 10.times do
-#   category = %w[painting drawing sculpture graphic_design seramic photography]
-# file = URI.open('https://source.unsplash.com/random')
-#   artwork = Artwork.new(name: Faker::Name.name, category: category.sample, rate: rand(20..500))
-#   artwork.user = User.all.sample
-# artwork.photos.attach(io: file , filename: 'random.png', content_type: 'image.png')
-#   artwork.save!
-# end
-first_artwork = Artwork.new(name: "Mona Lisa", description: "A half-length portrait painting by Italian artist Leonardo da Vinci. 
-Considered an archetypal masterpiece of the Italian Renaissance, it has been described as 'the best known, the most visited, 
-the most written about, the most sung about, the most parodied work of art in the world'. 
-The painting's novel qualities include the subject's enigmatic expression, the monumentality of the composition, 
+first_artwork = Artwork.new(name: "Mona Lisa", description: "A half-length portrait painting by Italian artist Leonardo da Vinci.
+Considered an archetypal masterpiece of the Italian Renaissance, it has been described as 'the best known, the most visited,
+the most written about, the most sung about, the most parodied work of art in the world'.
+The painting's novel qualities include the subject's enigmatic expression, the monumentality of the composition,
 the subtle modelling of forms, and the atmospheric illusionism.", rate: 11235, category: "painting", address: "12 Privet Drive, London")
 file = URI.open('https://cdn.britannica.com/24/189624-050-F3C5BAA9/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg')
 first_artwork.photos.attach(io: file, filename: 'temp.jpg', content_type: 'image.jpg')
 first_artwork.user = User.all.sample
 first_artwork.save!
-
 
 second_artwork = Artwork.new(name: "The Last Supper", description: "The Last Supper is a late 15th-century mural painting by Italian artist Leonardo da Vinci housed by the refectory of the Convent of Santa Maria delle Grazie in Milan, Italy. 
 It is one of the Western world's most recognizable paintings. 
@@ -127,7 +112,7 @@ tenth_artwork.photos.attach(io: file, filename: 'temp.jpg', content_type: 'image
 tenth_artwork.user = User.all.sample
 tenth_artwork.save!
 
-# =======
+
 # 10.times do
 #   category = %w[painting drawing sculpture graphic_design seramic photography]
 #   file = URI.open('https://source.unsplash.com/random')
@@ -137,6 +122,7 @@ tenth_artwork.save!
 #   artwork.save!
 # end
 puts "created #{Artwork.count} new artworks"
+
 
 # Added 10 bookings for user Sevil
 10.times do
