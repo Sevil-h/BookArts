@@ -27,7 +27,7 @@ The painting's novel qualities include the subject's enigmatic expression, the m
 the subtle modelling of forms, and the atmospheric illusionism.", rate: 11235, category: "painting", address: "12 Privet Drive, London")
 file = URI.open('https://cdn.britannica.com/24/189624-050-F3C5BAA9/Mona-Lisa-oil-wood-panel-Leonardo-da.jpg')
 first_artwork.photos.attach(io: file, filename: 'temp.jpg', content_type: 'image.jpg')
-first_artwork.user = User.all.sample
+first_artwork.user = sevil
 first_artwork.save!
 
 second_artwork = Artwork.new(name: "The Last Supper", description: "The Last Supper is a late 15th-century mural painting by Italian artist Leonardo da Vinci housed by the refectory of the Convent of Santa Maria delle Grazie in Milan, Italy. 
@@ -83,7 +83,7 @@ The work has been in the collection of the Mauritshuis in The Hague since 1902 a
 In 2006, the Dutch public selected it as the most beautiful painting in the Netherlands.", rate: 1125, category: "painting", address: "Plein 29, 2511 CS Den Haag, Netherlands")
 file = URI.open('https://cdn.britannica.com/33/194733-050-4CF75F31/Girl-with-a-Pearl-Earring-canvas-Johannes-1665.jpg')
 seventh_artwork.photos.attach(io: file, filename: 'temp.jpg', content_type: 'image.jpg')
-seventh_artwork.user = User.all.sample
+seventh_artwork.user = sevil
 seventh_artwork.save!
 
 eighth_artwork = Artwork.new(name: "The Birth of Venus", description: "The Birth of Venus is a painting by the Italian artist Sandro Botticelli, 

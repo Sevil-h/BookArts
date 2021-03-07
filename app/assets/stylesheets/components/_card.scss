@@ -4,24 +4,29 @@
   grid-gap: 16px;
 }
 
-.card{
-  background-repeat: no-repeat;
+.card {
   background-size: cover;
   height: 240px;
   justify-content: center;
   align-items: center;
   font-weight: bolder;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
   text-decoration: none;
-  color: $white;
+  color: $light-gray;
     &:hover {
-      opacity: 0.8;
+      opacity: 0.95;
       color: transparent;
       transition-timing-function: ease-in;
-      transition-duration: 0.7s;
+      transition-duration: 0.5s;
+      a {
+        color: transparent;
+        transition-timing-function: ease-in;
+        transition-duration: 0.5s;
+      }
     }
 }
+
 .card a {
   color: $white;
   opacity: 0.8;
