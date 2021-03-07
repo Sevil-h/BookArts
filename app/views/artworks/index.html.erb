@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/564x/a6/8a/1c/a68a1c1c87c89d499978100aca758fae.jpg)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/originals/4b/47/95/4b4795a58748405111bd7566b709eb52.jpg)">
     <h1>BookArts</h1>
       <div><%= form_tag artworks_path, method: :get do %>
         <%= text_field_tag :query,
@@ -12,7 +12,7 @@
 
   <div class="search-bar">
     <div id="map" class="my-4"
-      style="height: 700px; width:500px"
+      style="height: 700px; width:400px"
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
@@ -27,8 +27,8 @@
             </div>
           <% end %>
         </div>
-      <div class="btn-create mx-3">
-        <%= link_to 'Add a new artwork', new_artwork_path  %>
+      <div class= "mx-3">
+        <%= link_to 'Add a new artwork', new_artwork_path, class: 'button'  %>
       </div>
     </div>
   </div>

@@ -13,9 +13,8 @@ Booking.destroy_all
 Artwork.destroy_all
 # Added user as Sevil
 sevil = User.create(username: 'Lilium', address: 'se18py', email: 'sevilhatipogluu93@gmail.com', password: 'asdasd')
-
 # Added 10 users
-10.times do
+4.times do
   user = User.new( username: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, password: "password")
   user.save!
 end
@@ -112,20 +111,25 @@ tenth_artwork.photos.attach(io: file, filename: 'temp.jpg', content_type: 'image
 tenth_artwork.user = User.all.sample
 tenth_artwork.save!
 
-
-# 10.times do
-#   category = %w[painting drawing sculpture graphic_design seramic photography]
-#   file = URI.open('https://source.unsplash.com/random')
-#   artwork = Artwork.new(name: Faker::Name.name, category: "painting", rate: rand(20..500), address: "2D Mitre Road, London")
-#   artwork.user = User.all.sample
-#   artwork.photos.attach(io: file , filename: 'random.png', content_type: 'image.png')
-#   artwork.save!
-# end
 puts "created #{Artwork.count} new artworks"
 
-
-# Added 10 bookings for user Sevil
-10.times do
-  Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today, end_date: Date.today + 4)
+# Add 5 booking requests for user Sevil
+Booking.create!(artwork: Artwork.all.sample, user: sevil, start_date: Date.today - 30, end_date: Date.today - 3)
+2.times do
+  Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today, end_date: Date.today + 7)
 end
 
+2.times do
+    Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today + 31, end_date: Date.today + 60)
+end
+
+puts "created #{Booking.count} bookings for #{User.first.username}"
+
+# Add 3 bookings from other users for artworks owned by Sevil, 2 past bookings and 1 future
+sevils_artworks = Artwork.where(user: sevil)
+2.times do
+  Booking.create(artwork: sevils_artworks.sample, user: User.all.sample, start_date: Date.today - rand(20..50), end_date: Date.today - rand(1...20) )
+end
+Booking.create(artwork: sevils_artworks.sample, user: User.all.sample, start_date: Date.today + rand(1...10), end_date: Date.today + rand(10..20) )
+
+puts "created #{Booking.all.where(artwork: sevils_artworks).count} bookings for Sevil's artworks"

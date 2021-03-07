@@ -1,6 +1,5 @@
-<p class="link-index"><%= link_to 'Back', artworks_path  %>
-</p>
 <div class="container">
+  <%= link_to 'Back', artworks_path, class: 'button my-3' %>
   <div class="dashboard-cards">
     <div class="request-info text-center">
       <h1>My request</h1>
@@ -19,16 +18,16 @@
             <p><%= request.start_date %>
             <span> - <%= request.end_date %></span></p>
             <% if request.approval == true%>
-              <p> Confirm! </p>
+              <p> Confirmed</p>
             <% elsif request.approval.nil? %>
-              <p> Pending </p>
+              <p>Pending</p>
             <% else %>
-              <p> Decline</p>
+              <p>Declined</p>
             <% end %>
             <% if Date.today < request.start_date %>
-              <p><%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %></p>
+              <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %>
             <% end %>
-            <%= link_to "Leave a review", new_booking_review_path(request) unless Date.today < request.end_date  %>
+            <%= link_to "Leave a review", new_booking_review_path(request) unless Date.today < request.end_date %>
           </div>
         </div>
       <% end %>
@@ -50,9 +49,9 @@
               <span> - <%= booking.end_date%></span></p>
             <%= render "approval", booking: booking %>
             <% if booking.approval == true %>
-              <p>Approved!</p>
+              <p>Approved</p>
             <% elsif booking.approval == false %>
-              <p>Declined!</p>
+              <p>Rejected!</p>
             <% else %>
               <p> Pending</p>
             <% end %>
