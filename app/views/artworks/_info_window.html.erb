@@ -1,7 +1,10 @@
-<div class="info-window d-flex">
+<div class="info-window d-flex m-1">
   <div class="mx-2">
     <p><%= artwork.name %></p>
+    <p><%= artwork.user.username %></p>
     <p>£ <%= artwork.rate %></p>
   </div>
-  <%= cl_image_tag artwork.photos.first.key,height: 70, width: 70, crop: :fill %>
+  <%= link_to artwork_path(artwork) do %>
+    <%= cl_image_tag artwork.photos.first.key,height: 110, width: 80, crop: :fill, class: 'window-photo' %>
+  <% end %>
 </div>
