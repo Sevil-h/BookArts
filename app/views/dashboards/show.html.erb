@@ -18,11 +18,11 @@
             <p><%= request.start_date %>
             <span> - <%= request.end_date %></span></p>
             <% if request.approval == true%>
-              <p> Confirm! </p>
+              <p> Confirmed</p>
             <% elsif request.approval.nil? %>
-              <p> Pending </p>
+              <p>Pending</p>
             <% else %>
-              <p> Decline</p>
+              <p>Declined</p>
             <% end %>
             <% if Date.today < request.start_date %>
               <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %>
@@ -49,9 +49,9 @@
               <span> - <%= booking.end_date%></span></p>
             <%= render "approval", booking: booking %>
             <% if booking.approval == true %>
-              <p>Approved!</p>
+              <p>Approved</p>
             <% elsif booking.approval == false %>
-              <p>Declined!</p>
+              <p>Rejected!</p>
             <% else %>
               <p> Pending</p>
             <% end %>
