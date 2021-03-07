@@ -5,6 +5,6 @@
     <p>£ <%= artwork.rate %></p>
   </div>
   <%= link_to artwork_path(artwork) do %>
-    <%= cl_image_tag artwork.photos.first.key,height: 100, width: 80, crop: :fill, class: 'window-photo' %>
+    <%= cl_image_tag artwork.photos.first.key,height: 110, width: 80, crop: :fill, class: 'window-photo' %>
   <% end %>
 </div>
