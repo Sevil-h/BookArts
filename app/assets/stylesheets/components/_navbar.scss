@@ -3,8 +3,8 @@
   background: $purple;
   color: $white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  // position: fixed;
   width: 100vw;
+  // position: fixed;
   // z-index: 1;
 }
 
@@ -16,7 +16,7 @@
   width: 40px;
 }
 .navbar-nav .nav-link {
-  color: $white;
+  color: $light-gray;
 }
 .navbar-brand a {
   text-decoration: none;
