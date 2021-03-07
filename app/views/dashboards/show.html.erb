@@ -17,11 +17,11 @@
             <p><strong>Booking Period: </strong><%= request.start_date %><span> - <%= request.end_date %></span></p>
             <p><strong>Status:</strong> 
             <% if request.approval == true%>
-              Confirmed</p>
+              <p> Confirmed</p>
             <% elsif request.approval.nil? %>
-              Pending</p>
+              <p>Pending</p>
             <% else %>
-              Declined</p>
+              <p>Declined</p>
             <% end %>
             <% if Date.today < request.start_date %>
               <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %>
@@ -46,9 +46,9 @@
             <p><strong>Booking Period: </strong><%= booking.start_date %><span> - <%= booking.end_date %></p>
             <p><strong>Status: </strong> 
             <% if booking.approval == true %>
-              Approved</p>
+              <p>Approved</p>
             <% elsif booking.approval == false %>
-              Declined</p>
+              <p>Rejected!</p>
             <% else %>
               Pending</p>
             <% end %>

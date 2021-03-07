@@ -46,9 +46,8 @@
   color: $white;
   border-radius: 5px;
   text-decoration: none;
-  opacity: 0.9;
     &:hover {
-      opacity: 1;
+      opacity: 0.8;
       transition-timing-function: ease-in;
       transition-duration: 0.7s;
       text-decoration: none;
