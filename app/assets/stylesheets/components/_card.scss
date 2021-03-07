@@ -13,9 +13,10 @@
   border-radius: 8px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
   text-decoration: none;
-  color: $light-gray;
+  color: $white;
+  font-size: 16px;
     &:hover {
-      opacity: 0.95;
+      opacity: 0.9;
       color: transparent;
       transition-timing-function: ease-in;
       transition-duration: 0.5s;
@@ -25,11 +26,8 @@
         transition-duration: 0.5s;
       }
     }
-}
-
-.card a {
+  a {
   color: $white;
-  opacity: 0.8;
   text-decoration: none;
   font-weight: bold;
     &:hover {
@@ -40,6 +38,8 @@
       transition-duration: 0.4s;
     }
 }
+}
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
