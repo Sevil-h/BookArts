@@ -114,9 +114,9 @@ tenth_artwork.save!
 puts "created #{Artwork.count} new artworks"
 
 # Add 5 booking requests for user Sevil
-Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today - 30, end_date: Date.today - 1)
+Booking.create!(artwork: Artwork.all.sample, user: sevil, start_date: Date.today - 30, end_date: Date.today - 3)
 2.times do
-  Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today, end_date: Date.today + 4)
+  Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today, end_date: Date.today + 7)
 end
 
 2.times do
@@ -131,3 +131,5 @@ sevils_artworks = Artwork.where(user: sevil)
   Booking.create(artwork: sevils_artworks.sample, user: User.all.sample, start_date: Date.today - rand(20..50), end_date: Date.today - rand(1...20) )
 end
 Booking.create(artwork: sevils_artworks.sample, user: User.all.sample, start_date: Date.today + rand(1...10), end_date: Date.today + rand(10..20) )
+
+puts "created #{Booking.all.where(artwork: sevils_artworks).count} bookings for Sevil's artworks"
