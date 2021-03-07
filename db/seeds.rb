@@ -125,7 +125,11 @@ puts "created #{Artwork.count} new artworks"
 
 
 # Added 10 bookings for user Sevil
-10.times do
+5.times do
   Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today, end_date: Date.today + 4)
+end
+
+5.times do
+   Booking.create(artwork: Artwork.all.sample, user: User.all.sample, start_date: Date.today, end_date: Date.today + 4)
 end
 
