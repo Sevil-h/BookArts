@@ -10,25 +10,27 @@
   height: 240px;
   justify-content: center;
   align-items: center;
-  font-weight: bold;
-  border-radius: 10px;
+  font-weight: bolder;
+  border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   color: $white;
     &:hover {
       opacity: 0.8;
+      color: transparent;
       transition-timing-function: ease-in;
       transition-duration: 0.7s;
     }
 }
 .card a {
   color: $white;
+  opacity: 0.8;
   text-decoration: none;
   font-weight: bold;
     &:hover {
-      opacity: 0.8;
       text-decoration: none;
-      color: $light-gray;
+      color: $white;
+      opacity: 1;
       transition-timing-function: ease-in;
       transition-duration: 0.4s;
     }
