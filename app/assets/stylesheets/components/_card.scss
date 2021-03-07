@@ -38,6 +38,7 @@
       transition-timing-function: ease-in;
       transition-duration: 0.4s;
     }
+  }
 }
 
 .booking-card {
@@ -70,6 +71,22 @@
   text-align: center;
 }
 
+.review-card {
+  background-color: $white;
+  margin: 15px 15px 15px 0;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 3px $gray;
+  .card-text {
+    margin: 5px 0;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
+}
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
