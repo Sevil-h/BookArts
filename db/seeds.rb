@@ -125,6 +125,11 @@ end
 
 puts "created #{Booking.count} bookings for #{User.first.username}"
 
+
+# Added 10 bookings for user Sevil
+5.times do
+  Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today, end_date: Date.today + 4)
+
 # Add 3 bookings from other users for artworks owned by Sevil, 2 past bookings and 1 future
 sevils_artworks = Artwork.where(user: sevil)
 2.times do
@@ -132,4 +137,9 @@ sevils_artworks = Artwork.where(user: sevil)
 end
 Booking.create(artwork: sevils_artworks.sample, user: User.all.sample, start_date: Date.today + rand(1...10), end_date: Date.today + rand(10..20) )
 
+5.times do
+   Booking.create(artwork: Artwork.all.sample, user: User.all.sample, start_date: Date.today, end_date: Date.today + 4)
+end
+
 puts "created #{Booking.all.where(artwork: sevils_artworks).count} bookings for Sevil's artworks"
+
