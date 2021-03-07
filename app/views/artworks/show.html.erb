@@ -14,10 +14,14 @@
       <div class="review my-2">
         <h3>Reviews</h3>
         <% @artwork.reviews.each do |review| %>
-          <p><%= "Reviewer: #{review.booking.user.username}" %></p>
-          <p><%= "Rating: #{review.rating}" %></p>
-          <p><%= "Content: #{review.content}" %></p>
-        <% end %>
+        <p><%= "Reviewer: #{review.booking.user.username}" %></p>
+        <% counter = 0 %>
+        <% 5.times do %>
+        <i class="star-icon fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+          <% counter += 1 %>
+          <% end %>
+          <%= review.content %>
+          <% end %>
       </div>
       <div class="booking-form m-3">
         <h3>Book this artwork</h3>

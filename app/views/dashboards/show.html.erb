@@ -7,7 +7,7 @@
         <div class="booking-card">
           <div>
             <% request.artwork.photos.each do |photo| %>
-              <%= cl_image_tag photo.key,height: 250, width: 200, crop: :fill  %>
+              <%= cl_image_tag photo.key,height: 270, width: 200, crop: :fill  %>
             <% end %>
           </div>
           <div class="card-text">
@@ -15,14 +15,15 @@
             <p><strong>Owner: </strong><%= request.artwork.user.username %></p>
             <p><strong>Price/month: </strong>£ <%= request.artwork.rate %></p>
             <p><strong>Booking Period: </strong><%= request.start_date %><span> - <%= request.end_date %></span></p>
-            <p><strong>Status:</strong> 
-            <% if request.approval == true%>
-              <p> Confirmed</p>
-            <% elsif request.approval.nil? %>
-              <p>Pending</p>
-            <% else %>
-              <p>Declined</p>
-            <% end %>
+            <p><strong>Status:</strong>
+              <% if request.approval == true%>
+                <span> Confirmed</span>
+              <% elsif request.approval.nil? %>
+                <span>Pending</span>
+              <% else %>
+                <span>Declined</span>
+              <% end %>
+            </p>
             <% if Date.today < request.start_date %>
               <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %>
             <% end %>
@@ -37,21 +38,22 @@
         <div class="booking-card">
           <div>
             <% booking.artwork.photos.each do |photo| %>
-              <%= cl_image_tag photo.key,height: 250, width: 200, crop: :fill  %>
+              <%= cl_image_tag photo.key,height: 270, width: 200, crop: :fill  %>
             <% end %>
           </div>
           <div class= "card-text">
            <p><strong>Artwork: </strong>:<%= booking.artwork.name %></p>
             <p><strong>Owner: </strong><%= booking.artwork.user.username %></p>
-            <p><strong>Booking Period: </strong><%= booking.start_date %><span> - <%= booking.end_date %></p>
-            <p><strong>Status: </strong> 
-            <% if booking.approval == true %>
-              <p>Approved</p>
-            <% elsif booking.approval == false %>
-              <p>Rejected!</p>
-            <% else %>
-              Pending</p>
-            <% end %>
+            <p><strong>Booking Period: </strong><%= booking.start_date %><span> - <%= booking.end_date %></span></p>
+            <p><strong>Status: </strong>
+              <% if booking.approval == true %>
+                <span>Approved</span>
+              <% elsif booking.approval == false %>
+                <span>Rejected!</span>
+              <% else %>
+                <span>Pending</span>
+              <% end %>
+            </p>
             <%= render "approval", booking: booking %>
           </div>
         </div>

@@ -53,6 +53,15 @@
   }
 }
 
+.card-text a {
+  color: $purple;
+  padding: 6px 12px;
+  border: 1px solid;
+    &:hover {
+      opacity: 0.9;
+    }
+}
+
 .dashboard-cards {
   display: flex;
   justify-content: space-between;
