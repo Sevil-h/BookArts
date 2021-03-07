@@ -139,20 +139,21 @@ Booking.create(artwork: sevils_artworks.sample, user: User.all.sample, start_dat
 
 puts "#{Booking.count}"
 
+ # many_user_bookings = Booking.all.sample
+# 10.times do
+#   Booking.create(artwork: Artwork.all.sample, user: User.all.sample , start_date: Date.today + rand(1...10), end_date: Date.today + rand(10..20) )
+#   end
 # Added 25 Reviews
-25.times do
-  content = ['Awesome artwork', 'Perfect for my design office', "Perfect for my living room", "My client will be loved in party", "I love it, all the color and perspective, Just amazing.", "Awesome", "Perfect, one of the best art ever"]
-  reviews = Review.new(booking: Booking.all.sample, rating: rand(4..5), content: content.sample).save!
-    reviews = Review.new(booking: Booking.all.sample, rating: rand(1..3), content: content.sample).save!
-end
+# 25.times do
+#   content = ['Awesome artwork', 'Perfect for my design office', "Perfect for my living room", "My client will be loved in party", "I love it, all the color and perspective, Just amazing.", "Awesome", "Perfect, one of the best art ever"]
+#   good_reviews = Review.new(booking: Booking.all.sample rating: rand(4..5), content: content.sample)
+#   good_reviews.save!
+#   bad_review = ["Less colorful then I expected", "Smaller size then I thought", "Average", "Late delivery but perfect artwork", "I didn't like it", "Not recommended"]
+#   bad_reviews = Review.new(booking: Booking.all.sample, rating: rand(1..3), content: bad_reviews.sample)
+#   bad_reviews.save!
+# end
 
-# Added 15 bad Reviews
-15.times do
-  bad_review = ["Less colorful then I expected", "Smaller size then I thought", "Average", "Late delivery but perfect artwork", "I didn't like it", "Not recommended"]
-  reviews = Review.new(booking: Booking.all.sample, rating: rand(1..3), content: bad_review.sample).save!
-end
-
-puts "#{Review.count}"
+puts "created #{Review.count} reviews"
 
 
 puts "created #{Booking.all.where(artwork: sevils_artworks).count} bookings for Sevil's artworks"
