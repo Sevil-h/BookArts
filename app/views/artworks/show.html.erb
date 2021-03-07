@@ -1,3 +1,4 @@
+  <%= link_to 'Back', artworks_path, class: 'button mx-3' %>
 <div class="container m-3">
   <div class="art-info">
     <% @artwork.photos.each do |photo| %>
@@ -21,7 +22,6 @@
   <%= simple_form_for [@artwork, @booking] do |f| %>
     <%= f.input :start_date %>
     <%= f.input :end_date %>
-    <%= f.button :submit %>
+    <%= f.button :submit, class: 'button'%>
   <% end %>
 </div>
-<%= link_to 'Back', artworks_path  %>

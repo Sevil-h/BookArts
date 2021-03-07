@@ -18,7 +18,8 @@
     &:hover {
       opacity: 0.8;
       color: transparent;
-      transition: 0.3s ease;
+      transition-timing-function: ease-in;
+      transition-duration: 0.7s;
     }
 }
 .card a {
@@ -29,8 +30,9 @@
     &:hover {
       text-decoration: none;
       color: $white;
-      transition: 0.3s ease;
       opacity: 1;
+      transition-timing-function: ease-in;
+      transition-duration: 0.4s;
     }
 }
 // Smallest device
