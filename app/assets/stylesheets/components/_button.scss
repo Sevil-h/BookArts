@@ -46,12 +46,29 @@
   color: $white;
   border-radius: 5px;
   text-decoration: none;
-  opacity: 0.9;
     &:hover {
-      opacity: 1;
+      opacity: 0.8;
       transition-timing-function: ease-in;
       transition-duration: 0.7s;
       text-decoration: none;
       color: $white;
     }
+}
+
+.booking-btn {
+  background: $purple;
+  font-size: 10px;
+  margin: 0px 3px 0 3px;
+  padding: 5px 10px;
+  color: $white;
+  border-radius: 8px;
+  text-decoration: none;
+  opacity: 1;
+    &:hover {
+      opacity: 0.8;
+      transition-timing-function: ease-in;
+      transition-duration: 0.3s;
+      text-decoration: none;
+      color: $white;
+}
 }
