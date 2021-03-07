@@ -4,7 +4,7 @@
     color: $purple;
   }
 }
-.review {
+.reviews {
   width: 50%;
   opacity: 0.9;
   h3{
@@ -22,4 +22,8 @@
 }
 .description {
   text-align: left;
+}
+.review {
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.1);
 }
