@@ -17,12 +17,14 @@
           <div class="review-card">
             <div class="card-text">
               <p><strong><%= "#{review.booking.user.username}" %></strong></p>
-              <% counter = 0 %>
-              <% 5.times do %>
-              <i class="star-icon fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                <% counter += 1 %>
-                <% end %>
-                <%= review.content %>
+              <div>
+                <% counter = 0 %>
+                <% 5.times do %>
+                <i class="star-icon fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+                  <% end %>
+              </div>
+              <%= review.content %>
               </div>
             </div>
           <% end %>
