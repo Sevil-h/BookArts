@@ -5,11 +5,13 @@
       <%# @artwork.photos.each do |photo| %>
         <%#= cl_image_tag photo.key, height: 500, width: 400, crop: :fill, class: "photo" %>
       <%# end %>
-      <h1 class="my-2"><%= @artwork.name %></h1>
-      <h3>Owned by <%= @artwork.user.username %></h3>
-      <p> Rate £ <%= @artwork.rate %>/month</p>
-      <p>Address: <%= @artwork.address %></p>
-      <p class="description"><%= @artwork.description %></p>
+      <div class="art-info-description">
+        <h1 class="my-2"><%= @artwork.name %></h1>
+        <h3>Owned by <%= @artwork.user.username %></h3>
+        <p> Rate £ <%= @artwork.rate %>/month</p>
+        <p>Address: <%= @artwork.address %></p>
+        <p class="description"><%= @artwork.description %></p>
+      </div>
     </div>
     <div class="d-flex m-1">
       <div class="reviews my-2">

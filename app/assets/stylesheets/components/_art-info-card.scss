@@ -1,7 +1,21 @@
 .carousel-photo {
+  margin: 20px;
   background-size: contain;
   width: 100%;
   height: 100%;
   border-radius: 8px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+.art-info {
+  text-align: center;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 16px;
+  background-size: cover;
+  h3, h1 {
+    color: $purple;
+    margin-top: 10px;
+  }
+}
+.art-info-description{
+ padding: 15px 20px;
 }
