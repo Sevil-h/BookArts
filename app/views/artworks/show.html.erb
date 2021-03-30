@@ -6,8 +6,14 @@
         <%#= cl_image_tag photo.key, height: 500, width: 400, crop: :fill, class: "photo" %>
       <%# end %>
       <div class="art-info-description">
-        <h1 class="my-2"><%= @artwork.name %></h1>
-        <h3>Owned by <%= @artwork.user.username %></h3>
+        <div class="name-card">
+          <p>
+          <span>
+              <%= @artwork.name %>
+            </span>
+          &mdash; Owned by <%= @artwork.user.username %> &mdash;
+          </p>
+        </div>
         <p> Rate £ <%= @artwork.rate %>/month</p>
         <p>Address: <%= @artwork.address %></p>
         <p class="description"><%= @artwork.description %></p>

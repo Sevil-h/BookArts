@@ -11,11 +11,16 @@
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 16px;
   background-size: cover;
+  background-color: rgb(226, 226, 226);
   h3, h1 {
-    color: $purple;
     margin-top: 10px;
   }
 }
 .art-info-description{
- padding: 15px 20px;
+  padding: 15px 20px;
+  background: #4a523a;
+  color: rgb(226, 226, 226);
+  border-bottom-right-radius: 16px;
+  border-bottom-left-radius: 16px;
 }
+
