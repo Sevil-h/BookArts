@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="button" data-toggle="modal" data-target="#staticBackdrop">
+<button type="button" class="button-outline" data-toggle="modal" data-target="#staticBackdrop">
   Review
 </button>
 
@@ -8,7 +8,7 @@
   <div class="modal-dialog modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="staticBackdropLabel">Reviews</h5>
+        <h5 class="modal-title purple" id="staticBackdropLabel">Reviews</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -18,7 +18,7 @@
             <% @artwork.reviews.each do |review| %>
               <div class="review-card">
                 <div class="card-text">
-                  <p><strong><%= "{review.booking.user.username}" %></strong></p>
+                  <p><strong><%= "#{review.booking.user.username}" %></strong></p>
                 <div>
                   <% counter = 0 %>
                   <% 5.times do %>

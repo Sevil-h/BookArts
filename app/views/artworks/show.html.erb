@@ -14,11 +14,11 @@
           &mdash; Owned by <%= @artwork.user.username %> &mdash;
           </p>
         </div>
-        <p> Rate £ <%= @artwork.rate %>/month</p>
-        <p>Address: <%= @artwork.address %></p>
-        <p class="description"><%= @artwork.description %></p>
-        <p><%= render "booking-form" %><p>
-        <p><%= render "review" %></p>
+        <p class="lightgray"> Rate £ <%= @artwork.rate %>/month</p>
+        <p class="lightgray">Address: <%= @artwork.address %></p>
+        <p class="description lightgray m-3"><%= @artwork.description %></p>
+          <p class="m-2"><%= render "booking-form" %></p>
+          <p class="m-2"><%= render "review" %></p>
       </div>
     </div>
 <!--     <div class=" m-1">
@@ -48,7 +48,7 @@
         <%# end %>
       </div>
     </div> -->
-    <%= link_to 'Back', artworks_path, class: 'button my-4' %>
   </div>
+  <p class="m-3"><%= link_to 'Back', artworks_path, class: 'button' %></p>
 </div>
 </div>
