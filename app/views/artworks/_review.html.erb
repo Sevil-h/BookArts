@@ -1,0 +1,27 @@
+<p>
+  <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+    Reviews about BookArts
+  </button>
+</p>
+<div class="collapse" id="collapseExample">
+  <div class="card card-body">
+    <div class="reviews my-2">
+      <% @artwork.reviews.each do |review| %>
+        <div class="review-card">
+          <div class="card-text">
+            <p><strong><%= "#{review.booking.user.username}" %></strong></p>
+            <div>
+              <% counter = 0 %>
+              <% 5.times do %>
+              <i class="star-icon fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                <% counter += 1 %>
+                <% end %>
+            </div>
+            <%= review.content %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+

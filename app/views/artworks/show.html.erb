@@ -17,36 +17,38 @@
         <p> Rate £ <%= @artwork.rate %>/month</p>
         <p>Address: <%= @artwork.address %></p>
         <p class="description"><%= @artwork.description %></p>
+        <%= render "booking-form" %>
       </div>
     </div>
-    <div class="d-flex m-1">
-      <div class="reviews my-2">
-        <h3>Reviews</h3>
-        <% @artwork.reviews.each do |review| %>
+    <div class=" m-1">
+        <%= render "review" %>
+<!--         <h3>Reviews</h3>
+        <%# @artwork.reviews.each do |review| %>
           <div class="review-card">
             <div class="card-text">
-              <p><strong><%= "#{review.booking.user.username}" %></strong></p>
+              <p><strong><%#= "#{review.booking.user.username}" %></strong></p>
               <div>
-                <% counter = 0 %>
-                <% 5.times do %>
-                <i class="star-icon fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                  <% counter += 1 %>
-                  <% end %>
+                <%# counter = 0 %>
+                <%# 5.times do %>
+                <i# class="star-icon fa <%#= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <%# counter += 1 %>
+                  <%# end %>
               </div>
-              <%= review.content %>
+              <%#= review.content %>
               </div>
             </div>
-          <% end %>
-        </div>
-      <div class="booking-form m-3">
+          <%# end %>
+        </div> -->
+<!--       <div class="booking-form m-3">
         <h3>Book this artwork</h3>
-        <%= simple_form_for [@artwork, @booking] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-          <%= f.button :submit, class: 'button' %>
-        <% end %>
+        <%#= simple_form_for [@artwork, @booking] do |f| %>
+          <%#= f.input :start_date %>
+          <%#= f.input :end_date %>
+          <%#= f.button :submit, class: 'button' %>
+        <%# end %>
       </div>
-    </div>
-    <%= link_to 'Back', artworks_path, class: 'button' %>
+    </div> -->
+    <%= link_to 'Back', artworks_path, class: 'button my-4' %>
   </div>
+</div>
 </div>
