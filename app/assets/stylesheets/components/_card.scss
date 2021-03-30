@@ -14,26 +14,21 @@
   border-radius: 8px;
   box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
   text-decoration: none;
-  color: $white;
   font-size: 16px;
     &:hover {
       opacity: 0.9;
-      color: transparent;
       transition-timing-function: ease-in;
       transition-duration: 0.5s;
       a {
-        color: transparent;
         transition-timing-function: ease-in;
         transition-duration: 0.5s;
       }
     }
   a {
-  color: $white;
   text-decoration: none;
   font-weight: bold;
     &:hover {
       text-decoration: none;
-      color: $white;
       opacity: 1;
       transition-timing-function: ease-in;
       transition-duration: 0.4s;
