@@ -1,25 +1,25 @@
 require "faker"
 require 'open-uri'
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the bin/rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
+
+#CLEAN DATABASE
 Review.destroy_all
 User.destroy_all
 Booking.destroy_all
 Artwork.destroy_all
-# Added user as Sevil
+
+#USERS
+# Add Sevil as user
 sevil = User.create(username: 'Lilium', address: 'se18py', email: 'sevilhatipogluu93@gmail.com', password: 'asdasd')
-# Added 10 users
+
+# Add 4 other users
 4.times do
   user = User.new( username: Faker::Name.name, address: Faker::Address.full_address, email: Faker::Internet.email, password: "password")
   user.save!
 end
 puts "created #{User.count} new users"
 
+# ARTWORKS
+# Create 10 artworks
 first_artwork = Artwork.new(name: "Mona Lisa", description: "A half-length portrait painting by Italian artist Leonardo da Vinci.
 Considered an archetypal masterpiece of the Italian Renaissance, it has been described as 'the best known, the most visited,
 the most written about, the most sung about, the most parodied work of art in the world'.
@@ -113,7 +113,8 @@ tenth_artwork.save!
 
 puts "created #{Artwork.count} new artworks"
 
-# Add 5 booking requests for user Sevil
+# BOOKINGS
+# Add 5 booking requests by user Sevil: 1 past, two present and two future
 Booking.create!(artwork: Artwork.all.sample, user: sevil, start_date: Date.today - 30, end_date: Date.today - 3)
 2.times do
   Booking.create(artwork: Artwork.all.sample, user: sevil, start_date: Date.today, end_date: Date.today + 7)
@@ -133,3 +134,26 @@ end
 Booking.create(artwork: sevils_artworks.sample, user: User.all.sample, start_date: Date.today + rand(1...10), end_date: Date.today + rand(10..20) )
 
 puts "created #{Booking.all.where(artwork: sevils_artworks).count} bookings for Sevil's artworks"
+
+#REVIEWS
+good_review_content = ['Awesome artwork', 'Perfect for my design office', "Perfect for my living room", "My client will be loved in party", "I love it, all the color and perspective, Just amazing.", "Awesome", "Perfect, one of the best art ever"]
+bad_review_content = ["Less colorful then I expected", "Smaller size then I thought", "Average", "Late delivery but perfect artwork", "I didn't like it", "Not recommended"]
+# 10.times do
+#   good_review = Review.new(booking: Booking.all.sample, rating: rand(4..5), content: good_review_content.sample)
+#   good_review.save!
+#   bad_reviews = Review.new(booking: Booking.all.sample, rating: rand(1..3), content: bad_review_content.sample)
+#   bad_reviews.save!
+# end
+content = ['Awesome artwork', 'Perfect for my design office', "Perfect for my living room", "My client will be loved in party", "I love it, all the color and perspective",
+           'Just amazing', 'Awesome', "Perfect, one of the best art ever", "Less colorful then I expected", "Smaller size then I thought", "Average",
+           "Late delivery but perfect artwork", "I didn't like it", "Not recommended"]
+bookings = Booking.all
+10.times do
+  good_review = Review.new(content: good_review_content.sample, rating: rand(4..5))
+  good_review.booking = bookings.sample
+  good_review.save!
+  bad_review = Review.new(content: bad_review_content.sample, rating: rand(1..3))
+  bad_review.booking = bookings.sample
+  bad_review.save!
+end
+puts "created #{Review.count} new reviews"

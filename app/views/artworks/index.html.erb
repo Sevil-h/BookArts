@@ -1,12 +1,16 @@
 <div class="container">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://i.pinimg.com/originals/4b/47/95/4b4795a58748405111bd7566b709eb52.jpg)">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(https://i.pinimg.com/originals/4b/47/95/4b4795a58748405111bd7566b709eb52.jpg)">
     <h1>BookArts</h1>
-      <div><%= form_tag artworks_path, method: :get do %>
-        <%= text_field_tag :query,
-          params[:query],
-          class: "form-control",
-          placeholder: "Find a artwork" %>
+      <div class="m-2">
+        <%= form_tag artworks_path, method: :get do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a artwork" %>
         <% end %>
+      </div>
+      <div class="mt-2">
+        <p><strong>Share your talent with the world</strong></p>
       </div>
     </div>
 

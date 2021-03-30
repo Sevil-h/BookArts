@@ -4,7 +4,7 @@
   grid-gap: 16px;
 }
 
-.card{
+.card {
   background-repeat: no-repeat;
   background-size: cover;
   height: 240px;
@@ -12,19 +12,23 @@
   align-items: center;
   font-weight: bolder;
   border-radius: 8px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
   text-decoration: none;
   color: $white;
+  font-size: 16px;
     &:hover {
-      opacity: 0.8;
+      opacity: 0.9;
       color: transparent;
       transition-timing-function: ease-in;
-      transition-duration: 0.7s;
+      transition-duration: 0.5s;
+      a {
+        color: transparent;
+        transition-timing-function: ease-in;
+        transition-duration: 0.5s;
+      }
     }
-}
-.card a {
+  a {
   color: $white;
-  opacity: 0.8;
   text-decoration: none;
   font-weight: bold;
     &:hover {
@@ -34,6 +38,63 @@
       transition-timing-function: ease-in;
       transition-duration: 0.4s;
     }
+  }
+}
+
+.booking-card {
+  background-color: $white;
+  margin: 30px 10px;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 3px 3px 5px $gray;
+  .card-text {
+    width: 60%;
+    margin: 5px 0;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+}
+
+.card-text a {
+  color: $purple;
+  padding: 6px 12px;
+  border: 1px solid;
+    &:hover {
+      opacity: 0.9;
+    }
+}
+
+.dashboard-cards {
+  display: flex;
+  justify-content: space-between;
+}
+.request-info {
+  width: 60%;
+  text-align: center;
+}
+.booking-info {
+  width: 60%;
+  text-align: center;
+}
+
+.review-card {
+  background-color: $white;
+  margin: 15px 15px 15px 0;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 1px 1px 3px $gray;
+  .card-text {
+    margin: 5px 0;
+    margin-left: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+  }
+
 }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
@@ -60,14 +121,4 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
-}
-.dashboard-cards {
-  display: flex;
-  justify-content: space-between;
-}
-.request-info {
-  width: 60%;
-}
-.booking-info {
-  width: 60%;
 }

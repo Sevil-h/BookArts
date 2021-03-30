@@ -13,14 +13,22 @@
     <div class="d-flex m-1">
       <div class="reviews my-2">
         <h3>Reviews</h3>
-        <div class="review p-1 m-1">
-          <% @artwork.reviews.each do |review| %>
-            <p><%= "Reviewer: #{review.booking.user.username}" %></p>
-            <p><%= "Rating: #{review.rating}" %></p>
-            <p><%= "Content: #{review.content}" %></p>
+        <% @artwork.reviews.each do |review| %>
+          <div class="review-card">
+            <div class="card-text">
+              <p><strong><%= "#{review.booking.user.username}" %></strong></p>
+              <div>
+                <% counter = 0 %>
+                <% 5.times do %>
+                <i class="star-icon fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                  <% counter += 1 %>
+                  <% end %>
+              </div>
+              <%= review.content %>
+              </div>
+            </div>
           <% end %>
         </div>
-      </div>
       <div class="booking-form m-3">
         <h3>Book this artwork</h3>
         <%= simple_form_for [@artwork, @booking] do |f| %>
