@@ -1,4 +1,4 @@
 meta_product_name: "BookArts"
 meta_title: "BookArts - Share your talent with the world"
 meta_description: "Bookarts is a marketplace for artwork rental"
-meta_image: "bookarts_banner_resized" # should exist in `app/assets/images/`
+meta_image: "bookarts_banner_resized"
