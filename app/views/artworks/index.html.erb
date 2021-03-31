@@ -20,19 +20,8 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-      <div class="search-bar-right-side">
-        <div class="cards m-3">
-          <% @artworks.each do |artwork| %>
-            <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= background_url %>')">
-              <p><%= link_to artwork.name, artwork_path(artwork) %></p>
-              <p><span>£</span>
-              <%= "#{artwork.rate}/month" %></p>
-            </div>
-          <% end %>
-        </div>
-      <div class= "mx-3">
-      </div>
+      <div class="right-side">
+        <%= render "cards" %>
     </div>
   </div>
 </div>
