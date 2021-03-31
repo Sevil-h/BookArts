@@ -4,8 +4,8 @@
   color: $white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
   width: 100vw;
-  // position: fixed;
-  // z-index: 1;
+  position: fixed;
+  z-index: 1;
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -27,4 +27,7 @@
   color: $white;
   text-decoration:none;
   font-weight: bold;
+}
+.navbar-margin {
+  margin-top: 85px;
 }
