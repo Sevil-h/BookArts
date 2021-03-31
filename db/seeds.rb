@@ -150,7 +150,7 @@ content = ['Awesome artwork', 'Perfect for my design office', "Perfect for my li
            'Just amazing', 'Awesome', "Perfect, one of the best art ever", "Less colorful then I expected", "Smaller size then I thought", "Average",
            "Late delivery but perfect artwork", "I didn't like it", "Not recommended"]
 bookings = Booking.all
-10.times do
+30.times do
   good_review = Review.new(content: good_review_content.sample, rating: rand(4..5))
   good_review.booking = bookings.sample
   good_review.save!
