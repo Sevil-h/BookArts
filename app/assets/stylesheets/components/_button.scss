@@ -54,7 +54,20 @@
       color: $white;
     }
 }
-
+.button-outline {
+  background-color: transparent;
+  padding: 8px 16px;
+  color: $light-gray;
+  border: 2px solid $light-gray;
+  border-radius: 8px;
+  text-decoration: none;
+    &:hover {
+      opacity: 0.8;
+      transition-timing-function: ease-in;
+      transition-duration: 0.7s;
+      text-decoration: none;
+    }
+}
 .booking-btn {
   background: $purple;
   font-size: 10px;
@@ -70,5 +83,6 @@
       transition-duration: 0.3s;
       text-decoration: none;
       color: $white;
+    }
 }
-}
+

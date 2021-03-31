@@ -1,3 +1,41 @@
+.cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 16px;
+}
+
+.card {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 240px;
+  justify-content: center;
+  align-items: center;
+  font-weight: bolder;
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  text-decoration: none;
+  font-size: 16px;
+    &:hover {
+      opacity: 0.9;
+      transition-timing-function: ease-in;
+      transition-duration: 0.5s;
+      a {
+        transition-timing-function: ease-in;
+        transition-duration: 0.5s;
+      }
+    }
+  a {
+  text-decoration: none;
+  font-weight: bold;
+    &:hover {
+      text-decoration: none;
+      opacity: 1;
+      transition-timing-function: ease-in;
+      transition-duration: 0.4s;
+    }
+  }
+}
+
 .booking-card {
   background-color: $white;
   margin: 30px 10px;

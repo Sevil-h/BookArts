@@ -1,42 +1,54 @@
 <div class="container justify-content-center navbar-margin">
   <div>
-    <div class="art-info m-2">
-      <% @artwork.photos.each do |photo| %>
-        <%= cl_image_tag photo.key, height: 500, width: 400, crop: :fill, class: "photo" %>
-      <% end %>
-      <h1 class="my-2"><%= @artwork.name %></h1>
-      <h3>Owned by <%= @artwork.user.username %></h3>
-      <p> Rate £ <%= @artwork.rate %>/month</p>
-      <p>Address: <%= @artwork.address %></p>
-      <p class="description"><%= @artwork.description %></p>
-    </div>
-    <div class="d-flex m-1">
-      <div class="review my-2">
-        <h3>Reviews</h3>
-        <% @artwork.reviews.each do |review| %>
-          <div class="review-card">
-            <div class="card-text">
-              <div>
-                <% counter = 0 %>
-                <% 5.times do %>
-                <i class="star-icon fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
-                  <% counter += 1 %>
-                  <% end %>
-              </div>
-              <%= review.content %>
-              </div>
-            </div>
-          <% end %>
+    <div class="art-info">
+      <%= render 'carousel' %>
+      <%# @artwork.photos.each do |photo| %>
+        <%#= cl_image_tag photo.key, height: 500, width: 400, crop: :fill, class: "photo" %>
+      <%# end %>
+      <div class="art-info-description">
+        <div class="name-card">
+          <p>
+          <span>
+              <%= @artwork.name %>
+            </span>
+          &mdash; Owned by <%= @artwork.user.username %> &mdash;
+          </p>
         </div>
-      <div class="booking-form m-3">
-        <h3>Book this artwork</h3>
-        <%= simple_form_for [@artwork, @booking] do |f| %>
-          <%= f.input :start_date %>
-          <%= f.input :end_date %>
-          <%= f.button :submit, class: 'button' %>
-        <% end %>
+        <p class="lightgray"> Rate £ <%= @artwork.rate %>/month</p>
+        <p class="lightgray">Address: <%= @artwork.address %></p>
+        <p class="description lightgray m-3"><%= @artwork.description %></p>
+          <p class="m-2"><%= render "booking-form" %></p>
+          <p class="m-2"><%= render "review" %></p>
       </div>
     </div>
-    <%= link_to 'Back', artworks_path, class: 'button' %>
+<!--     <div class=" m-1">
+      <h3>Reviews</h3>
+      <% #@artwork.reviews.each do |review| %>
+        <div class="review-card">
+          <div class="card-text">
+            <p><strong><%#= "{review.booking.user.username}" %></strong></p>
+          <div>
+            <%# counter = 0 %>
+            <%# 5.times do %>
+            <i class="star-icon fa <%#= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+              <%# counter += 1 %>
+              <%# end %>
+          </div>
+          <%#= review.content %>
+          </div>
+        </div>
+      <%# end %>
+    </div> -->
+<!--       <div class="booking-form m-3">
+        <h3>Book this artwork</h3>
+        <%#= simple_form_for [@artwork, @booking] do |f| %>
+          <%#= f.input :start_date %>
+          <%#= f.input :end_date %>
+          <%#= f.button :submit, class: 'button' %>
+        <%# end %>
+      </div>
+    </div> -->
   </div>
+  <p class="m-3"><%= link_to 'Back', artworks_path, class: 'button' %></p>
+</div>
 </div>

@@ -1,28 +1,18 @@
-.booking-form {
-  width: 50%;
-  h3 {
-    color: $purple;
-  }
-}
-.review {
-  width: 50%;
-  opacity: 0.9;
-  h3{
-    color: $purple;
-  }
-}
-.art-info {
-  text-align: center;
-  h3, h1 {
-    color: $purple;
-  }
-}
 .photo {
   border: 8px solid $light-gray;
 }
 .description {
   text-align: left;
 }
+
+.review {
+  text-align: center;
+  border: 1px solid rgba(0,0,0,0.1);
+}
 .star-icon {
   color: #E7BC0D;
+}
+
+.gray{
+  color: $gray;
 }

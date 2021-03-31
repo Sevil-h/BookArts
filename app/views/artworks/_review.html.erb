@@ -1,0 +1,43 @@
+<!-- Button trigger modal -->
+<button type="button" class="button-outline" data-toggle="modal" data-target="#staticBackdrop">
+  Review
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title purple" id="staticBackdropLabel">Reviews</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <div class=" m-1">
+            <% @artwork.reviews.each do |review| %>
+              <div class="review-card">
+                <div class="card-text">
+                  <p><strong><%= "#{review.booking.user.username}" %></strong></p>
+                <div>
+                  <% counter = 0 %>
+                  <% 5.times do %>
+                    <i class="star-icon fa <%= review.rating > counter ? 'fa-star' : 'fa-star-o' %>"></i>
+                    <% counter += 1 %>
+                  <% end %>
+                </div>
+                <%= review.content %>
+                </div>
+              </div>
+            <% end %>
+         </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="button" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
