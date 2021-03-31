@@ -8,6 +8,7 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import swal from 'sweetalert';
+import { initSweetalert } from '../plugins/init_sweetalert';
 
 Rails.start()
 Turbolinks.start()
@@ -24,6 +25,16 @@ import "bootstrap";
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
+initSweetalert('#sweet-alert-demo', {
+  title: "Are you sure?",
+  text: "This action cannot be reversed",
+  icon: "warning"
+}, (value) => {
+  if (value) {
+    const link = document.querySelector('#delete-link');
+    link.click();
+  }
+});
 
 document.addEventListener('turbolinks:load', () => {
   // Call your functions here, e.g:

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(https://i.pinimg.com/originals/4b/47/95/4b4795a58748405111bd7566b709eb52.jpg)">
+  <div class="card-category navbar-margin" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.5)), url(https://i.pinimg.com/originals/4b/47/95/4b4795a58748405111bd7566b709eb52.jpg)">
     <h1>BookArts</h1>
       <div class="m-2">
         <%= form_tag artworks_path, method: :get do %>
@@ -20,20 +20,8 @@
       data-markers="<%= @markers.to_json %>"
       data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-      <div class="search-bar-right-side">
-        <div class="cards m-3">
-          <% @artworks.each do |artwork| %>
-            <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
-            <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= background_url %>')">
-              <p><%= link_to artwork.name, artwork_path(artwork) %></p>
-              <p><span>£</span>
-              <%= "#{artwork.rate}/month" %></p>
-            </div>
-          <% end %>
-        </div>
-      <div class= "mx-3">
-        <%= link_to 'Add a new artwork', new_artwork_path, class: 'button'  %>
-      </div>
+      <div class="right-side">
+        <%= render "cards" %>
     </div>
   </div>
 </div>

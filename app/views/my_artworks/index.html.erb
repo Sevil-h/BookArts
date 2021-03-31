@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container navbar-margin">
   <h1><%= "#{current_user.username}'s Artworks" %></h1>
   <div class="cards">
     <% @my_artworks.each do |artwork| %>
@@ -12,6 +12,6 @@
         </div>
     <% end %>
   </div>
-  <p class="my-4"><%= link_to 'Add a new artwork', new_artwork_path, class: 'button' %></p>
+  <p class="my-4"><%= link_to 'Add a new artwork', new_artwork_path, class: 'button', id: "sweet-alert-demo" %></p>
   <p><%= link_to "Back", artworks_path, class: 'button' %></p>
 </div>
