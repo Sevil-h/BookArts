@@ -3,58 +3,64 @@
     <div class="request-info" >
       <h2>Booking requests</h2>
       <% @requests.each do |request| %>
-        <div class="booking-card">
-          <div>
-            <% request.artwork.photos.each do |photo| %>
-              <%= cl_image_tag photo.key,height: 270, width: 200, crop: :fill  %>
-            <% end %>
-          </div>
-          <div class="card-text">
-            <p><strong>Artwork: </strong>: <%= request.artwork.name %></p>
-            <p><strong>Owner: </strong><%= request.artwork.user.username %></p>
-            <p><strong>Price/month: </strong>£ <%= request.artwork.rate %></p>
-            <p><strong>Booking Period: </strong><%= request.start_date %><span> - <%= request.end_date %></span></p>
-            <p><strong>Status:</strong>
-              <% if request.approval == true%>
-                <span> Confirmed</span>
-              <% elsif request.approval.nil? %>
-                <span>Pending</span>
-              <% else %>
-                <span>Declined</span>
-              <% end %>
-            </p>
-            <% if Date.today < request.start_date %>
-              <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %>
-            <% end %>
-            <%= link_to "Leave a review", new_booking_review_path(request) unless Date.today < request.end_date %>
-          </div>
+        <div class="booking-cards">
+          <% artwork = request.artwork %>
+          <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
+          <figure class="booking-card card--1" style="--image-src: url('<%= background_url %>')">
+            <figcaption>
+              <span class="info-card">
+                <h4><%= link_to artwork.name, artwork_path(artwork) %></h4>
+                <p><strong>Owner: </strong><%= request.artwork.user.username %></p>
+                <p><strong>Monthly rate: </strong>£ <%= request.artwork.rate %></p>
+                <p><strong>Booking Period: </strong><%= request.start_date %><span> - <%= request.end_date %></span></p>
+                <p><strong>Status:</strong>
+                  <% if request.approval == true%>
+                    <span> Confirmed</span>
+                  <% elsif request.approval.nil? %>
+                    <span>Pending</span>
+                  <% else %>
+                    <span>Declined</span>
+                  <% end %>
+                </p>
+                <% if Date.today < request.start_date %>
+                  <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %>
+                <% end %>
+                <%= link_to "Leave a review", new_booking_review_path(request) unless Date.today < request.end_date %>
+                  <%= artwork.rate %></p>
+                  <%= link_to "Edit", "#" %>
+                  <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %></span>
+              </span>
+            </figcaption>
+          </figure>
         </div>
       <% end %>
     </div>
     <div class="booking-info">
       <h2>Bookings</h2>
       <% @my_bookings.each do |booking| %>
-        <div class="booking-card">
-          <div>
-            <% booking.artwork.photos.each do |photo| %>
-              <%= cl_image_tag photo.key,height: 270, width: 200, crop: :fill  %>
-            <% end %>
-          </div>
-          <div class= "card-text">
-           <p><strong>Artwork: </strong>:<%= booking.artwork.name %></p>
-            <p><strong>Owner: </strong><%= booking.artwork.user.username %></p>
-            <p><strong>Booking Period: </strong><%= booking.start_date %><span> - <%= booking.end_date %></span></p>
-            <p><strong>Status: </strong>
-              <% if booking.approval == true %>
-                <span>Approved</span>
-              <% elsif booking.approval == false %>
-                <span>Rejected!</span>
-              <% else %>
-                <span>Pending</span>
-              <% end %>
-            </p>
-            <%= render "approval", booking: booking %>
-          </div>
+        <div class="booking-cards">
+          <% artwork = booking.artwork %>
+          <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
+          <figure class="booking-card card--1" style="--image-src: url('<%= background_url %>')">
+            <figcaption>
+              <span class="info-card">
+                <h4><%= link_to artwork.name, artwork_path(artwork) %></h4>
+                <p><strong>Owner: </strong><%= artwork.user.username %></p>
+                <p><strong>Monthly rate: </strong>£ <%= artwork.rate %></p>
+                <p><strong>Booking Period: </strong><%= booking.start_date %><span> - <%= booking.end_date %></span></p>
+                <p><strong>Status:</strong>
+                  <% if booking.approval == true%>
+                    <span> Confirmed</span>
+                  <% elsif booking.approval.nil? %>
+                    <span>Pending</span>
+                  <% else %>
+                    <span>Declined</span>
+                  <% end %>
+                </p>
+                <%= render "approval", booking: booking %>
+              </span>
+            </figcaption>
+          </figure>
         </div>
       <% end %>
     </div>
