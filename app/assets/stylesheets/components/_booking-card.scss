@@ -1,0 +1,67 @@
+.booking-cards {
+  display: flex;
+}
+
+figure.booking-card {
+  background-repeat: no-repeat;
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background-image: var(--image-src);
+  background-position: 50% 50%;
+  background-size: cover;
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2);
+  transition: background 400ms ease;
+  box-shadow: 0 6.7px 5.3px rgba(0, 0, 0, 0.03), 0 22.3px 17.9px rgba(0, 0, 0, 0.05), 0 100px 80px rgba(0, 0, 0, 0.07);
+  overflow: hidden;
+  &:hover {
+    figcaption {
+      transform: translateY(0px);
+    }
+  }
+
+  &--1 {
+    &:hover {
+      background-position: 50% 100%;
+    }
+    figcaption {
+      bottom: -170px;
+      transform: translateY(80px);
+      width: 100%;
+      height: 288px;
+      padding: 15px 20px;
+    }
+  }
+
+  figcaption {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    background: #4a523a;
+    transition: transform 400ms ease;
+    .info-card {
+      color: rgb(226, 226, 226);
+      text-align: left;
+      a{
+        color: $light-gray;
+        text-decoration: none;
+        &:hover{
+          color: $purple;
+          text-decoration: none;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+      h4 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+        margin-bottom: 2px;
+      }
+      span {
+        color: $light-gray;
+        font-size: 0.85rem;
+      }
+    }
+  }
+}
