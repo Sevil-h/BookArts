@@ -6,7 +6,7 @@ figure.booking-card {
   background-repeat: no-repeat;
   position: relative;
   width: 400px;
-  height: 300px;
+  height: 340px;
   background-image: var(--image-src);
   background-position: 50% 50%;
   background-size: cover;
@@ -18,19 +18,6 @@ figure.booking-card {
   &:hover {
     figcaption {
       transform: translateY(0px);
-    }
-  }
-
-  &--1 {
-    &:hover {
-      background-position: 50% 100%;
-    }
-    figcaption {
-      bottom: -170px;
-      transform: translateY(80px);
-      width: 100%;
-      height: 288px;
-      padding: 15px 20px;
     }
   }
 
@@ -48,7 +35,6 @@ figure.booking-card {
         color: $light-gray;
         text-decoration: none;
         &:hover{
-          color: $purple;
           text-decoration: none;
           transition: all 0.5s ease-in-out;
         }

@@ -2,13 +2,13 @@
   <div class="accept">
     <%= simple_form_for(booking) do |f| %>
       <%= f.input :approval, input_html: { value: true }, as: :hidden%>
-      <%= f.submit "Approve", class: 'booking-btn' %>
+      <%= f.submit "Approve", class: 'button' %>
     <% end %>
   </div>
-  <div class="decline">
+  <div class="decline mx-2">
     <%= simple_form_for(booking) do |f| %>
       <%= f.input :approval, input_html: { value: false }, as: :hidden %>
-      <%= f.submit "Decline", class: 'booking-btn' %>
+      <%= f.submit "Decline", class: 'button' %>
     <% end %>
   </div>
 </div>
