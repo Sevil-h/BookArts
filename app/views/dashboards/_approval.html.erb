@@ -1,14 +1,14 @@
-<div class="confirm d-flex justify-content-center">
+<div>
   <div class="accept">
     <%= simple_form_for(booking) do |f| %>
       <%= f.input :approval, input_html: { value: true }, as: :hidden%>
-      <%= f.submit "Approve", class: 'button' %>
+      <%= f.button :button, "Accept", class: 'button' %>
     <% end %>
   </div>
-  <div class="decline mx-2">
+  <div class="decline">
     <%= simple_form_for(booking) do |f| %>
       <%= f.input :approval, input_html: { value: false }, as: :hidden %>
-      <%= f.submit "Decline", class: 'button' %>
+      <%= f.button :button, "Decline", class: 'button' %>
     <% end %>
   </div>
 </div>

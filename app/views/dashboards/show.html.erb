@@ -22,11 +22,10 @@
                     <span>Declined</span>
                   <% end %>
                 </p>
-                  <p><%= link_to "Leave a review", new_booking_review_path(request), class: 'button' unless Date.today < request.end_date %></p>
-                  <p><span><%= link_to "Edit", "#", class: 'button' %>
-                  <% if Date.today < request.start_date %>
-                    <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"}, class: "button" %>
-                  <% end %></span></p>
+                <%= link_to "Leave a review", new_booking_review_path(request), class: 'button' unless Date.today < request.end_date %>
+                <% if Date.today < request.start_date %>
+                  <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"}, class: "button" %>
+                <% end %>
             </figcaption>
           </figure>
         </div>
