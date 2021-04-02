@@ -6,7 +6,7 @@
         <div class="booking-cards">
           <% artwork = request.artwork %>
           <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
-          <figure class="booking-card card--1" style="--image-src: url('<%= background_url %>')">
+          <figure class="booking-card card--2" style="--image-src: url('<%= background_url %>')">
             <figcaption>
               <span class="info-card">
                 <h4><%= link_to artwork.name, artwork_path(artwork) %></h4>
@@ -22,14 +22,11 @@
                     <span>Declined</span>
                   <% end %>
                 </p>
-                <% if Date.today < request.start_date %>
-                  <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"} %>
-                <% end %>
-                <%= link_to "Leave a review", new_booking_review_path(request) unless Date.today < request.end_date %>
-                  <%= artwork.rate %></p>
-                  <%= link_to "Edit", "#" %>
-                  <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %></span>
-              </span>
+                  <p><%= link_to "Leave a review", new_booking_review_path(request), class: 'button' unless Date.today < request.end_date %></p>
+                  <p><span><%= link_to "Edit", "#", class: 'button' %>
+                  <% if Date.today < request.start_date %>
+                    <%= link_to "Delete", request, method: :delete, data: {confirm: "Are you sure"}, class: "button" %>
+                  <% end %></span></p>
             </figcaption>
           </figure>
         </div>
@@ -41,7 +38,7 @@
         <div class="booking-cards">
           <% artwork = booking.artwork %>
           <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
-          <figure class="booking-card card--1" style="--image-src: url('<%= background_url %>')">
+          <figure class="booking-card card--2" style="--image-src: url('<%= background_url %>')">
             <figcaption>
               <span class="info-card">
                 <h4><%= link_to artwork.name, artwork_path(artwork) %></h4>
@@ -67,3 +64,5 @@
   </div>
   <%= link_to 'Back', artworks_path, class: 'button' %>
 </div>
+
+
