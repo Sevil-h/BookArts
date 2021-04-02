@@ -6,13 +6,13 @@
         <% background_url = cl_image_path artwork.photos.first.key, height: 300, width: 500, crop: :fill %>
         <figure class="myartwork-card card--1" style="--image-src: url('<%= background_url %>')">
           <figcaption>
-            <span class="info-card">
-            <h5><%= link_to artwork.name, artwork_path(artwork) %></h5>
-            <span><p><span>£</span>
-              <%= artwork.rate %></p>
-              <%= link_to "Edit", "#" %>
-              <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"} %></span>
-            </span>
+            <div class="info-card">
+              <h4><%= link_to artwork.name, artwork_path(artwork) %></h4>
+              <p>
+                <%= "£ #{artwork.rate}" %>
+              </p>
+              <%= link_to "Delete", artwork, method: :delete, data: {confirm: "Are you sure"}, class: 'button' %>
+            </div>
           </figcaption>
         </figure>
       <% end %>
