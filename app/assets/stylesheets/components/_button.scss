@@ -53,6 +53,12 @@
       text-decoration: none;
       color: $white;
     }
+    a{
+      color: $white;
+      &:hover{
+        color: $white;
+      }
+    }
 }
 .button-outline {
   background-color: transparent;
