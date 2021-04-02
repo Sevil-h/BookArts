@@ -29,10 +29,10 @@ figure.booking-card {
     background: #4a523a;
     transition: transform 400ms ease;
     .info-card {
-      color: rgb(226, 226, 226);
+      color: $body;
       text-align: left;
       a{
-        color: $light-gray;
+        color: $body;
         text-decoration: none;
         &:hover{
           text-decoration: none;
@@ -45,8 +45,8 @@ figure.booking-card {
         margin-bottom: 2px;
       }
       span {
-        color: $light-gray;
-        font-size: 0.85rem;
+        color: $body;
+        font-size: 1rem;
       }
     }
   }
