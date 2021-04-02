@@ -1,17 +1,16 @@
-<div class="container">
-  <div class="cards">
-    <% @artworks.each do |artwork| %>
-     <% background_url = cl_image_path artwork.photos.first.key %>
-      <figure class="card card--1" style="--image-src: url('<%= background_url %>')">
-        <figcaption>
-          <span class="info-card">
-            <h4><%= link_to artwork.name, artwork_path(artwork) %></h4>
-            <p><strong>Owner: </strong><%= artwork.user.username %></p>
-            <p><strong>Monthly rate: </strong>£ <%= artwork.rate %></p>
-          </span>
-        </figcaption>
-      </figure>
-    <% end %>
-  </div>
+<div class="cards">
+  <% @artworks.each do |artwork| %>
+    <% background_url = cl_image_path artwork.photos.first.key %>
+    <figure class="card card--1" style="--image-src: url('<%= background_url %>')">
+      <figcaption>
+        <span class="info-card">
+          <h4><%= link_to artwork.name, artwork_path(artwork) %></h4>
+          <p><strong>Owner: </strong><%= artwork.user.username %></p>
+          <p><strong>Monthly rate: </strong>£ <%= artwork.rate %></p>
+        </span>
+      </figcaption>
+    </figure>
+  <% end %>
 </div>
+
 
